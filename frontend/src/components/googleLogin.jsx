@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-
+import axios from "axios";
 const GoogleLogin = () => {
   useEffect(() => {
     // Function to handle the Google Sign-In response
@@ -7,18 +7,17 @@ const GoogleLogin = () => {
       if (response.credential) {
         var id_token = response.credential;
         console.log(id_token);
-        const apiResponse = await fetch(
+        const apiResponse = await axios.post(
           `${import.meta.env.VITE_BACKEND_URL}/api/auth/google`,
+          { id_token },
           {
-            method: "POST",
             headers: {
               "Content-Type": "application/json"
-            },
-            body: JSON.stringify({ id_token: id_token })
+            }
           }
         );
 
-        const data = await apiResponse.json(); // or response.text() depending on the response content type
+        const data = axiosResponse.data; // or response.text() depending on the response content type
         // Process the data
         console.log(data);
       }
