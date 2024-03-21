@@ -1,14 +1,13 @@
 import { useEffect } from "react";
-import axios from "axios";
+import axiosInstance from "../axiosInstance";
 const GoogleLogin = () => {
   useEffect(() => {
     // Function to handle the Google Sign-In response
     const handleCredentialResponse = async response => {
       if (response.credential) {
         var id_token = response.credential;
-        console.log(id_token);
-        const apiResponse = await axios.post(
-          `${import.meta.env.VITE_BACKEND_URL}/api/auth/google`,
+        const apiResponse = await axiosInstance.post(
+          `auth/google/`,
           { id_token },
           {
             headers: {
@@ -17,7 +16,7 @@ const GoogleLogin = () => {
           }
         );
 
-        const data = axiosResponse.data; // or response.text() depending on the response content type
+        const data = apiResponse.data; // or response.text() depending on the response content type
         // Process the data
         console.log(data);
       }
@@ -38,7 +37,6 @@ const GoogleLogin = () => {
         }
       );
     };
-    console.log(`${import.meta.env.VITE_BACKEND_URL}/api/auth/google`);
   }, []); // Ensure that this effect runs only once on component mount
 
   return <div id="g_id_signin" />;

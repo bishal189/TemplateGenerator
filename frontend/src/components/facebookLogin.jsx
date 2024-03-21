@@ -1,8 +1,6 @@
 import React, { useState, useEffect } from "react";
 
 const FacebookLogin = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-  const [userData, setUserData] = useState({});
 
   useEffect(() => {
     // Load the Facebook SDK asynchronously
@@ -17,9 +15,7 @@ const FacebookLogin = () => {
       // Check login status when SDK is initialized
       window.FB.getLoginStatus(response => {
         if (response.status === "connected") {
-          setIsLoggedIn(true);
           console.log(response.authResponse);
-          setUserData(response.authResponse);
         }
       });
     };
@@ -60,10 +56,8 @@ const FacebookLogin = () => {
             .catch(error => {
               console.error("Error fetching user's name:", error);
             });
-          setUserData(response.authResponse);
         } else {
-          setIsLoggedIn(false);
-          setUserData({});
+          console.error("no proper response from meta")
         }
       },
       { scope: "public_profile,email" }
@@ -72,17 +66,12 @@ const FacebookLogin = () => {
 
   const handleLogout = () => {
     window.FB.logout(response => {
-      setIsLoggedIn(false);
-      setUserData({});
     });
   };
 
   return (
     <div>
-      {isLoggedIn ? (
-      ) : (
         <button onClick={handleLogin}>Login with Facebook</button>
-      )}
     </div>
   );
 };
