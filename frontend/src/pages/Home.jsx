@@ -1,10 +1,13 @@
 
+import Header from "./components/Header";
+import Footer from './components/Footer';
 import { RiBuilding2Fill, RiSearch2Line } from "react-icons/ri";
 import TemplateCard from "../components/TemplateCard";
 
 const Home = () => {
   return (
     <>
+    <Header />
       <div className="w-full flex flex-col justify-center justify-items-center align-middle py-14">
         <h1 className="text-5xl font-bold text-center">
           Build Your Legal Forms
@@ -77,6 +80,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };
