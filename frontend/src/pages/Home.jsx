@@ -1,9 +1,10 @@
 
-import Header from "./components/Header";
-import Footer from './components/Footer';
+import Header from "../components/Header";
+import Footer from '../components/Footer';
 import { RiBuilding2Fill, RiSearch2Line } from "react-icons/ri";
 import TemplateCard from "../components/TemplateCard";
-
+import {HowItWorks} from "../components/howItWorks"
+import {WhyChooseTemplate} from '../components/chooseTemplate'
 const Home = () => {
   return (
     <>
@@ -80,6 +81,8 @@ const Home = () => {
           </div>
         </div>
       </div>
+      <HowItWorks />
+      <WhyChooseTemplate />
       <Footer />
     </>
   );
