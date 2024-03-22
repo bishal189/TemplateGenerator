@@ -4,6 +4,8 @@ import facebooklogo from '../../assets/facebook.png'
 import googlelogo from '../../assets/google.png'
 import Header from './Header';
 import { useState } from 'react';
+import axios from 'axios';
+
 function Signin() {
 
   const [email, setEmail] = useState("");
@@ -31,15 +33,32 @@ function Signin() {
     // Validate password
     if (!password) {
       setPasswordError('Password is required');
-    } else if (password.length < 8) {
-      setPasswordError('Password must be at least 8 characters long');
+    } else if (password.length < 2) {
+      setPasswordError('Password must be at least 2 characters long');
     }
 
     // If both email and password are valid, proceed with form submission
     if (email && password && password.length >= 8) {
       console.log('Form submitted:', { email, password });
     }
+
+    const userData = {
+      email: email,
+      password: password
+    };
+    const response =axios.post('http://localhost:8000/auth/login/', userData)
+    .then(res=>{
+      console.log(res.data.access)
+      const accessToken =res.data.access;
+      localStorage.setItem("accessToken", accessToken);
+      window.location.href = "/";
+    }).catch(err=>{
+      console.log('err',err)
+    })
+
   };
+
+
 
   return (
     <>

@@ -3,8 +3,37 @@ import facebooklogo from '../../assets/facebook.png'
 import googlelogo from '../../assets/google.png'
 import Header from '../Signin/Header'
 import './Register.css'
+import axios from 'axios'
 
+import { useState } from 'react'
 const Register = () => {
+
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+   
+      const response =  axios.post('http://localhost:8000/auth/register/', {
+        email,
+        password
+      })
+      .then(res=>{
+      const accessToken =res.data.access;
+      localStorage.setItem("accessToken", accessToken);
+      window.location.href = "/";
+
+      })
+      .catch(err=>{
+        console.log('err',err)
+
+      })
+
+      
+      
+    }
+
+ 
   return (
     <>
 
@@ -13,9 +42,9 @@ const Register = () => {
         <h1>Sign up for a free account</h1>
        
        <div className="form-container">
-          <form id="login-form">
-            <input type="email" id="email" placeholder=" Email" required />
-            <input type="password" id="password" placeholder="password(8 characters or more)" required />
+          <form id="login-form" onSubmit={handleSubmit}>
+            <input type="email" id="email" placeholder=" Email"  onChange={(e) => setEmail(e.target.value)}  required />
+            <input type="password" id="password" placeholder="password(8 characters or more)" onChange={(e) => setPassword(e.target.value)}  required />
             <div className="checkbox-container">
 
             </div>
