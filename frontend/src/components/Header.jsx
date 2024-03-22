@@ -1,11 +1,29 @@
+import  { useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { IoIosSearch } from "react-icons/io";
-import "./Header.css"
+import './Header.css'; 
+import Button from 'react-bootstrap/Button';
+
+
+      
+      
+   
 
 function Header() {
+  const [showBusinessDropdown, setShowBusinessDropdown] = useState(false);
+  const [showEstateDropdown, setShowEstateDropdown] = useState(false);
+  const [showPersonalDropdown, setShowPersonalDropdown] = useState(false);
+  const [showSupportDropdown, setShowSupportDropdown] = useState(false);
+  const [showRealStateDropdown, setShowRealStateDropdown] = useState(false);
+  const [showSearch, setShowSearch] = useState(false);
+
+  const toggleSearch = () => {
+    setShowSearch(!showSearch);
+  };
+
   return (
     <Navbar bg="light" expand="lg" className="bg-body-tertiary" data-bs-theme="light">
       <Container>
@@ -13,8 +31,13 @@ function Header() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            
-            <NavDropdown title="Business" id="basic-nav-dropdown">
+            <NavDropdown 
+              title="Business" 
+              id="business-nav-dropdown"
+              show={showBusinessDropdown}
+              onMouseEnter={() => setShowBusinessDropdown(true)}
+              onMouseLeave={() => setShowBusinessDropdown(false)}
+            >
               <NavDropdown.Item href="">Non-Disclosure Agreement</NavDropdown.Item>
               <NavDropdown.Item href="">Employment Contract</NavDropdown.Item>
               <NavDropdown.Item href="">Release of Liability</NavDropdown.Item>
@@ -22,8 +45,13 @@ function Header() {
               <NavDropdown.Item href="">Partnership Agreement</NavDropdown.Item>
               <NavDropdown.Item href="">View all forms</NavDropdown.Item>
             </NavDropdown>
-
-            <NavDropdown title="Real Estate" id="basic-nav-dropdown">
+            <NavDropdown 
+              title="Real Estate" 
+              id="real-estate-nav-dropdown"
+              show={showRealStateDropdown}
+              onMouseEnter={() => setShowRealStateDropdown(true)}
+              onMouseLeave={() => setShowRealStateDropdown(false)}
+            >
               <NavDropdown.Item href="">Lease Agreement</NavDropdown.Item>
               <NavDropdown.Item href="">Eviction Notice</NavDropdown.Item>
               <NavDropdown.Item href="">Lease Termination</NavDropdown.Item>
@@ -31,8 +59,13 @@ function Header() {
               <NavDropdown.Item href="">Rental Application</NavDropdown.Item>
               <NavDropdown.Item href="">View all forms</NavDropdown.Item>
             </NavDropdown>
-
-            <NavDropdown title="Estate Planning" id="basic-nav-dropdown">
+            <NavDropdown 
+              title="Estate Planning" 
+              id="estate-nav-dropdown"
+              show={showEstateDropdown}
+              onMouseEnter={() => setShowEstateDropdown(true)}
+              onMouseLeave={() => setShowEstateDropdown(false)}
+            >
               <NavDropdown.Item href="">Power of Attorney</NavDropdown.Item>
               <NavDropdown.Item href="">Last Will and Testament</NavDropdown.Item>
               <NavDropdown.Item href="">Advance Directive</NavDropdown.Item>
@@ -40,8 +73,13 @@ function Header() {
               <NavDropdown.Item href="">Do not Resuscitate</NavDropdown.Item>
               <NavDropdown.Item href="">View all forms</NavDropdown.Item>
             </NavDropdown>
-
-            <NavDropdown title="Personal" id="basic-nav-dropdown">
+            <NavDropdown 
+              title="Personal" 
+              id="personal-nav-dropdown"
+              show={showPersonalDropdown}
+              onMouseEnter={() => setShowPersonalDropdown(true)}
+              onMouseLeave={() => setShowPersonalDropdown(false)}
+            >
               <NavDropdown.Item href="">Bill of Sale</NavDropdown.Item>
               <NavDropdown.Item href="">Affidavit</NavDropdown.Item>
               <NavDropdown.Item href="">Promissory Note</NavDropdown.Item>
@@ -50,13 +88,29 @@ function Header() {
               <NavDropdown.Item href="">Loan Agreement</NavDropdown.Item>
               <NavDropdown.Item href="">View all forms</NavDropdown.Item>
             </NavDropdown>
-            
           </Nav>
           <Nav>
-            <Nav.Link href="#"><IoIosSearch /></Nav.Link>
-          </Nav>
+  <Nav.Link onClick={toggleSearch}><IoIosSearch size={24} /></Nav.Link>
+  {showSearch && (
+    <NavDropdown  id="search-nav-dropdown" show={showSearch} align="end" onClick={(e) => e.stopPropagation()}>
+      <div className="search-box">
+        <div className="search-input">
+          <div className="icon-placeholder">
+            <IoIosSearch size={28} />
+          </div>
+          <input type="text" placeholder="Search Documents and Forms(e.g. lease agreement)" />
+          <Button variant="primary">Search</Button>{' '}
+        </div>
+      </div>
+    </NavDropdown>
+  )}
+</Nav>
+
+
           <Nav>
-            <NavDropdown title="Support" id="basic-nav-dropdown">
+            <NavDropdown title="Support" id="basic-nav-dropdown" show={showSupportDropdown}
+            onMouseEnter={() => setShowSupportDropdown(true)}
+            onMouseLeave={() => setShowSupportDropdown(false)}>
               <NavDropdown.Item href="">About Us</NavDropdown.Item>
               <NavDropdown.Item href="">Chat Online</NavDropdown.Item>
               <NavDropdown.Item href="">Contact Us</NavDropdown.Item>

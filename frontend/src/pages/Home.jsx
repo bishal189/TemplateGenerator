@@ -1,4 +1,4 @@
-import React from "react";
+
 import { RiBuilding2Fill, RiSearch2Line } from "react-icons/ri";
 import TemplateCard from "../components/TemplateCard";
 
