@@ -1,11 +1,15 @@
-import React from "react";
+
+import Header from "../components/Header";
+import Footer from '../components/Footer';
 import { RiBuilding2Fill, RiSearch2Line } from "react-icons/ri";
 import { GoLaw } from "react-icons/go";
 import TemplateCard from "../components/TemplateCard";
-
+import {HowItWorks} from "../components/howItWorks"
+import {WhyChooseTemplate} from '../components/chooseTemplate'
 const Home = () => {
   return (
     <>
+    <Header />
       <div className="w-full flex flex-col justify-center justify-items-center align-middle py-14">
         <h1 className="text-5xl font-bold text-center">
           Build Your Legal Forms
@@ -78,10 +82,16 @@ const Home = () => {
           </div>
         </div>
       </div>
+<<<<<<< HEAD
 
       <div className="flex content-center justify-items-center justify-center">
         <div className="w-2/3 p-5 mt-5"></div>
       </div>
+=======
+      <HowItWorks />
+      <WhyChooseTemplate />
+      <Footer />
+>>>>>>> main
     </>
   );
 };

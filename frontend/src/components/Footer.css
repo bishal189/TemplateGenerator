@@ -1,0 +1,137 @@
+
+
+*{
+    background-color: white;
+    margin:3px;
+    padding: 4px;
+    
+  }
+  .footer {
+    background-color: white;
+    color: black;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  .footer a {
+    color: black;
+    text-decoration: none;
+    margin-right: 10px;
+  }
+  .footer a:hover {
+    text-decoration: blue;
+  }
+  
+  .no-bullets {
+    list-style-type: none;
+  }
+  .no-bullets li {
+    margin-bottom: 10px;
+    margin-left: 0; /* Reset margin */
+    text-align: left; /* Align text to the left */
+  }
+  .footer-container {
+    display: flex;
+    justify-content: space-between; /* Align items with space between */
+    padding: 8px;
+  }
+  .footer {
+    display: flex;
+    align-items: flex-start;
+  }
+  
+  .heading {
+    margin-right: 20px; /* Adjust margin as needed */
+  }
+  
+  ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  li {
+    margin-bottom: 5px; /* Adjust margin as needed */
+  }
+  
+  .no-bullets li::before {
+    
+    color: black;
+    display: inline-block;
+    width: 1em; /* Adjust spacing between bullet and text */
+    margin-left: -1em; /* Adjust spacing between bullet and text */
+  }
+  
+  .heading{
+    margin-left:0;
+    text-align: left;
+  }
+  .site-footer {
+    display: flex; /* Use flexbox to align items horizontally */
+    flex-wrap: wrap; /* Allow items to wrap onto multiple lines if needed */
+  }
+  
+  .footer-content {
+    display: flex; /* Use flexbox for each group of items */
+    align-items: center; /* Center items vertically */
+  }
+  
+  .footer-img {
+    width: 118px; /* Set width to 118px */
+    height: 33px; /* Set height to 33px */
+    margin-right: 10px; /* Add margin between images */
+  }
+  
+  .footer-content p {
+    margin: 0; 
+    color:black/* Remove default margin for the paragraph */
+  }
+  .text{
+    color:black;
+    margin-left: auto;
+  }
+  
+  .social{
+    height: 500px;
+    width:600px;
+  }
+  
+  .icon{
+    color:black;
+    display:flex;
+    height:50px;
+    width:60px;
+    text-align: right;
+    font-size: 30px; /* Adjust icon size as needed */
+   margin-bottom: 10px;
+  }
+  .facebook:hover{
+   color: blue;
+   height: 100px;
+   width:60px;
+  }
+  .twitter:hover:hover{
+    color: blue;
+    height: 50px;
+    width:60px;
+   }
+   .linkedin:hover{
+    color: blue;
+    height: 50px;
+    width:60px;
+   }
+   .youtube:hover{
+    color: blue;
+    height: 50px;
+    width:60px;
+   }
+   hr {
+    border: 0; /* Remove default border */
+    height: -0.2px; /* Set height of the line */
+    background-color: black; /* Set color of the line */
+    margin: 3px 0; /* Add margin above and below the line */
+  }
+  
+  
