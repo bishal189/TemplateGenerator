@@ -1,4 +1,6 @@
 import "bootstrap/dist/css/bootstrap.min.css";
+import 'tailwindcss/tailwind.css';
+
 import "./App.css";
 import Header from "./components/Header";
 import Home from "./pages/Home";
