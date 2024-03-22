@@ -13,12 +13,15 @@ def register(request):
         data = json.loads(request.body)
         email = data.get('email')  # Added email extraction
         password = data.get('password')
+        print(data)
 
         if not password or not email:  # Check all the fields are provided
+            print('not email')
             return Response({"error": "All fields are required"}, status=status.HTTP_400_BAD_REQUEST)
 
         # Check if email is already in use
         if Account.objects.filter(email=email).exists():
+            print('note a user')
             return Response({"error": "Email is already in use"}, status=status.HTTP_400_BAD_REQUEST)
         
         user = Account.objects.create_user(email=email, password=password)  # Pass email to create_users
