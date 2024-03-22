@@ -1,26 +1,46 @@
 /* Header.css */
-
-/* Hide the dropdown symbol */
 .dropdown-toggle::after {
-    display: none !important;
-  }
-  
-  /* Style the navigation links */
-  .nav-link, .nav-dropdown-item {
-    text-decoration: none; /* Remove default underline */
-    position: relative; /* Position relative for absolute positioning of underline */
-    color: #000; /* Default color for navigation links */
-  }
-  
-  /* Add blue underline and shadowed color when hovering over the navigation links */
-  .nav-link:hover::after, .nav-dropdown-item:hover::after {
-    content: ''; /* Add underline */
-    position: absolute; /* Position absolutely relative to the parent */
-    bottom: -2px; /* Adjust as needed */
-    left: 0; /* Stretch the underline to cover the entire width */
-    width: 100%;
-    height: 2px; /* Thickness of the underline */
-    background-color: #007bff; /* Blue color */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Shadow */
-  }
-  
+  display: none !important;
+}
+
+.dropdown-menu {
+  border-top: 3px solid #007bff; /* Blue line color */
+}
+
+.dropdown-item:hover {
+  background-color: rgba(0, 123, 255, 0.2); /* Light blue color on hover */
+}
+.search-box {
+  display: flex;
+  align-items: center;
+  width: 700px;
+}
+
+.search-input {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.icon-placeholder {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  transform: translateY(-50%);
+  pointer-events: none; /* Prevents icon from interfering with input */
+}
+.search-input input[type="text"] {
+  flex: 1;
+  padding: 8px;
+  font-size: 16px;
+  margin-right: 8px;
+  width: calc(100% - 180px); /* Adjust the width to leave space for the search icon and button */
+  border: none;
+  outline: none;
+}
+
+
+
+.search-input button {
+  margin-left: 0px;
+}
