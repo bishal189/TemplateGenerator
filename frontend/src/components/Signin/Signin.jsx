@@ -2,8 +2,12 @@ import React from 'react';
 import './Signin.css'
 import facebooklogo from '../../assets/facebook.png'
 import googlelogo from '../../assets/google.png'
+import Header from './Header';
 function Signin() {
   return (
+    <>
+    
+    <Header/>
     <div className="login-container">
       <h1>Log In</h1>
       <div className="social-login">
@@ -40,6 +44,7 @@ function Signin() {
         <p>Don't have an account? <a href="#"><span className='signup'>Sign up</span></a></p>
       </div>
     </div>
+    </>
   );
 }
 
