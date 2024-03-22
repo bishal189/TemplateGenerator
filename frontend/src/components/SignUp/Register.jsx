@@ -11,20 +11,8 @@ const Register = () => {
       <Header />
       <div className="login-container">
         <h1>Sign up for a free account</h1>
-        {/* <div className="social-login">
-        <button className="login-with-google">
-          <img src={googlelogo} alt="Google logo" className='googlelogo'/>
-          Log in with Google
-        </button>
-        <button className="login-with-facebook">
-          <img src={facebooklogo} alt="Facebook logo" className='facebooklogo' />
-          Log in with Facebook
-        </button>
-      </div> */}
-
-
-
-        <div className="form-container">
+       
+       <div className="form-container">
           <form id="login-form">
             <input type="email" id="email" placeholder=" Email" required />
             <input type="password" id="password" placeholder="password(8 characters or more)" required />
