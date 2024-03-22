@@ -1,5 +1,5 @@
 import React from "react";
-import { RiBuilding2Fill } from "react-icons/ri";
+import { RiBuilding2Fill, RiSearch2Line } from "react-icons/ri";
 import TemplateCard from "../components/TemplateCard";
 
 const Home = () => {
@@ -20,6 +20,61 @@ const Home = () => {
           <TemplateCard Icon={RiBuilding2Fill} Text="Lease Agreement" />
           <TemplateCard Icon={RiBuilding2Fill} Text="Lease Agreement" />
           <TemplateCard Icon={RiBuilding2Fill} Text="Lease Agreement" />
+        </div>
+      </div>
+      <div className="flex justify-center">
+        <div className="w-2/3 bg-white shadow-lg border-2 rounded-lg p-5 mt-5">
+          <h2 className="text-3xl font-bold md-2">Find Your Document</h2>
+
+          <div className="border border-gray-950 rounded-lg p-1 mt-3 flex items-center content-center justify-center">
+            <RiSearch2Line className="text-3xl align-middle" />
+            <input
+              className="w-full py-2 px-3 outline-none"
+              type="text"
+              placeholder="Search documents and fonts"
+            />
+
+            <button className="w-1/6 mx-1 py-2 font-bold rounded-sm bg-violet-600 border-2 border-violet-600 hover:bg-white hover:text-violet-600 transition-all">
+              Search
+            </button>
+          </div>
+
+          <div className="flex mt-4">
+            <a
+              href="#"
+              className="appearance-none text-violet-600 px-2 border-r-2 border-violet-600 text-sm"
+            >
+              Room Rental Agreement
+            </a>
+
+            <a
+              href="#"
+              className="appearance-none text-violet-600 px-2 border-r-2 border-violet-600 text-sm"
+            >
+              Quitclaim Deed
+            </a>
+
+            <a
+              href="#"
+              className="appearance-none text-violet-600 px-2 border-r-2 border-violet-600 text-sm"
+            >
+              Medical Power of Attorney
+            </a>
+
+            <a
+              href="#"
+              className="appearance-none text-violet-600 px-2 border-r-2 border-violet-600 text-sm"
+            >
+              NDA
+            </a>
+
+            <a
+              href="#"
+              className="appearance-none text-violet-600 px-2 border-r-2 border-violet-600 text-sm"
+            >
+              + More
+            </a>
+          </div>
         </div>
       </div>
     </>
