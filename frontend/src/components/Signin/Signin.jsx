@@ -17,21 +17,27 @@ function Signin() {
         </button>
       </div>
 
-      
+       <div className='middle'>
+        <span>or</span>
+       </div>
+
       <div className="form-container">
         <form id="login-form">
-          <label htmlFor="email">Email</label>
-          <input type="email" id="email" placeholder="Enter your email" required />
-          <label htmlFor="password">Password</label>
-          <input type="password" id="password" placeholder="Enter your password" required />
+          <input type="email" id="email" placeholder=" Email" required />
+          <input type="password" id="password" placeholder="password" required />
           <div className="checkbox-container">
+            <div>
             <input type="checkbox" id="remember-me" />
-            <label htmlFor="remember-me">Remember Me</label>
+            <label htmlFor="remember-me" className='rememberme'>Remember Me</label>
+            </div>
+            <div>
+            <a href="#">Forgot password?</a>
+            </div>
           </div>
-          <a href="#">Forgot password?</a>
-          <button type="submit">Log In</button>
+        
+          <button type="submit" className='login_button'>Log In</button>
         </form>
-        <p>Don't have an account? <a href="#">Sign up</a></p>
+        <p>Don't have an account? <a href="#"><span className='signup'>Sign up</span></a></p>
       </div>
     </div>
   );
