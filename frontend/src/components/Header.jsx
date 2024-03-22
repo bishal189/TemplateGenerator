@@ -5,6 +5,7 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { IoIosSearch } from "react-icons/io";
 import { GoArrowUpRight } from "react-icons/go";
+import { RiSearch2Line } from "react-icons/ri";
 
 import "./Header.css";
 
@@ -51,7 +52,13 @@ function Header() {
                 style={{ display: "flex", alignItems: "center" }}
               >
                 View all forms
-                <GoArrowUpRight style={{ color: "blue", marginLeft: "5px" }} />
+                <GoArrowUpRight
+                  style={{
+                    color: "blue",
+                    marginLeft: "5px",
+                    fontSize: "1.8em",
+                  }}
+                />
               </NavDropdown.Item>
             </NavDropdown>
             <NavDropdown
@@ -71,7 +78,13 @@ function Header() {
                 style={{ display: "flex", alignItems: "center" }}
               >
                 View all forms
-                <GoArrowUpRight style={{ color: "blue", marginLeft: "5px" }} />
+                <GoArrowUpRight
+                  style={{
+                    color: "blue",
+                    marginLeft: "5px",
+                    fontSize: "1.8em",
+                  }}
+                />
               </NavDropdown.Item>
             </NavDropdown>
             <NavDropdown
@@ -93,7 +106,13 @@ function Header() {
                 style={{ display: "flex", alignItems: "center" }}
               >
                 View all forms
-                <GoArrowUpRight style={{ color: "blue", marginLeft: "5px" }} />
+                <GoArrowUpRight
+                  style={{
+                    color: "blue",
+                    marginLeft: "5px",
+                    fontSize: "1.8em",
+                  }}
+                />
               </NavDropdown.Item>
             </NavDropdown>
             <NavDropdown
@@ -114,7 +133,13 @@ function Header() {
                 style={{ display: "flex", alignItems: "center" }}
               >
                 View all forms
-                <GoArrowUpRight style={{ color: "blue", marginLeft: "5px" }} />
+                <GoArrowUpRight
+                  style={{
+                    color: "blue",
+                    marginLeft: "5px",
+                    fontSize: "1.8em",
+                  }}
+                />
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
@@ -131,13 +156,13 @@ function Header() {
               >
                 <div className="search-box">
                   <div className="search-input">
-                    <div className="icon-placeholder">
-                      <IoIosSearch size={28} />
-                    </div>
+                    <RiSearch2Line className="text-3xl align-middle" />
                     <input
+                      className="flex-1 py-2 px-3 outline-none"
                       type="text"
-                      placeholder="Search Documents and Forms(e.g. lease agreement)"
+                      placeholder="Search documents and fonts(e.g. lease agreement)"
                     />
+
                     <button className="w-1/6 mx-1 py-2 font-bold rounded-sm bg-violet-600 border-2 border-violet-600 hover:bg-white hover:text-violet-600 transition-all">
                       Search
                     </button>
@@ -158,16 +183,22 @@ function Header() {
               <NavDropdown.Item href="">About Us</NavDropdown.Item>
               <NavDropdown.Item href="">Chat Online</NavDropdown.Item>
               <NavDropdown.Item href="">Contact Us</NavDropdown.Item>
-             
-             <NavDropdown.Item disabled>
-  <div style={{ fontSize: 'small' }}>
-    Monday - Friday | 9AM - 7PM <br /> EDT
-    (855) 335-9779
-  </div>
-</NavDropdown.Item>
 
+              <NavDropdown.Item disabled>
+                <div style={{ fontSize: "small" }}>
+                  Monday - Friday | 9AM - 7PM <br /> EDT (855) 335-9779
+                </div>
+              </NavDropdown.Item>
             </NavDropdown>
-            <Nav.Link eventKey={2} href="#">
+            <Nav.Link
+              eventKey={2}
+              href="#"
+              style={{
+                display: "flex",
+                alignItems: "center",
+                marginLeft: "auto",
+              }}
+            >
               Sign in
             </Nav.Link>
           </Nav>

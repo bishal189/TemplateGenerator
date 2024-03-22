@@ -29,14 +29,17 @@
   transform: translateY(-50%);
   pointer-events: none; /* Prevents icon from interfering with input */
 }
-
 .search-input input[type="text"] {
   flex: 1;
-  padding: 8px 17px 8px 36px; /* Adjust padding to accommodate the icon */
+  padding: 8px;
   font-size: 16px;
-  border: none; /* Remove the border */
-  outline: none; /* Remove the outline */
+  margin-right: 8px;
+  width: calc(100% - 180px); /* Adjust the width to leave space for the search icon and button */
+  border: none;
+  outline: none;
 }
+
+
 
 .search-input button {
   margin-left: 0px;
