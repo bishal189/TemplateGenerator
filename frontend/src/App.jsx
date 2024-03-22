@@ -6,7 +6,7 @@ import Home from "./pages/Home";
 function App() {
   return (
     <div className="App">
-      <Header />
+      <Header className="sticky z-50" />
       <Home />
     </div>
   );

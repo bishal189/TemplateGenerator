@@ -1,5 +1,6 @@
 import React from "react";
 import { RiBuilding2Fill, RiSearch2Line } from "react-icons/ri";
+import { GoLaw } from "react-icons/go";
 import TemplateCard from "../components/TemplateCard";
 
 const Home = () => {
@@ -22,14 +23,14 @@ const Home = () => {
           <TemplateCard Icon={RiBuilding2Fill} Text="Lease Agreement" />
         </div>
       </div>
-      <div className="flex justify-center">
+      <div className="flex content-center justify-items-center justify-center">
         <div className="w-2/3 bg-white shadow-lg border-2 rounded-lg p-5 mt-5">
           <h2 className="text-3xl font-bold md-2">Find Your Document</h2>
 
-          <div className="border border-gray-950 rounded-lg p-1 mt-3 flex items-center content-center justify-center">
+          <div className="border border-gray-950 rounded-lg p-1 mt-3 flex items-center content-center justify-center bg-violet-50">
             <RiSearch2Line className="text-3xl align-middle" />
             <input
-              className="w-full py-2 px-3 outline-none"
+              className="w-full py-2 px-3 outline-none bg-violet-50"
               type="text"
               placeholder="Search documents and fonts"
             />
@@ -76,6 +77,10 @@ const Home = () => {
             </a>
           </div>
         </div>
+      </div>
+
+      <div className="flex content-center justify-items-center justify-center">
+        <div className="w-2/3 p-5 mt-5"></div>
       </div>
     </>
   );
