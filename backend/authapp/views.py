@@ -4,6 +4,7 @@ from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.response import Response
 from rest_framework import status
 from rest_framework.decorators import api_view
+from django.contrib.auth import authenticate
 
 @api_view(['POST'])
 def register(request):
@@ -50,3 +51,35 @@ def register(request):
         error = str(e)
         print(error)
         return Response({'message': f"unexpected error {error}", 'status': False}, status=400)
+
+
+
+@api_view(['POST'])
+def login(request):
+
+    try:
+        data=json.loads(request.body)
+        email =data.get('email')
+        password =data.get('password')
+
+        if not email or not password:
+            return Response({"error": "Both email and password are required"}, status=status.HTTP_400_BAD_REQUEST)
+
+        user = authenticate(request, email=email, password=password)
+
+        if user is None:
+            return Response({"error": "Invalid username or password"}, status=status.HTTP_401_UNAUTHORIZED)
+        refresh = RefreshToken.for_user(user)
+
+
+        return Response({
+            "message": "Login successful",
+            "refresh": str(refresh),
+            "access": str(refresh.access_token)
+        }, status=status.HTTP_200_OK)
+        
+    except Exception as e:
+        error=str(e)
+        print(error)
+        return Response({'message':f"unexpected error {error}",'status':False},status=400)
+
