@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-pg-p2ibdsmkafmk29o$o9(q_i$tgd((0#!m_86djy2oug^(hyz
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -37,6 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'authapp'
+
+    
+   
 ]
 
 MIDDLEWARE = [
@@ -67,7 +71,9 @@ TEMPLATES = [
     },
 ]
 
+
 WSGI_APPLICATION = 'templateProject.wsgi.application'
+AUTH_USER_MODEL='authapp.Account'
 
 
 # Database
