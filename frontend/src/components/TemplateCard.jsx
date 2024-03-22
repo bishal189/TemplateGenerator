@@ -1,4 +1,4 @@
-import React from "react";
+import PropTypes from "prop-types";
 
 const TemplateCard = ({ Icon, Text }) => {
   return (
@@ -9,6 +9,11 @@ const TemplateCard = ({ Icon, Text }) => {
       </p>
     </div>
   );
+};
+
+TemplateCard.propTypes = {
+  Icon: PropTypes.elementType.isRequired,
+  Text: PropTypes.string.isRequired,
 };
 
 export default TemplateCard;

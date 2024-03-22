@@ -5,7 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import { IoIosSearch } from "react-icons/io";
 import './Header.css'; 
-import Button from 'react-bootstrap/Button';
+
 
 
       
@@ -99,7 +99,9 @@ function Header() {
             <IoIosSearch size={28} />
           </div>
           <input type="text" placeholder="Search Documents and Forms(e.g. lease agreement)" />
-          <Button variant="primary">Search</Button>{' '}
+          <button className="w-1/6 mx-1 py-2 font-bold rounded-sm bg-violet-600 border-2 border-violet-600 hover:bg-white hover:text-violet-600 transition-all">
+              Search
+            </button>
         </div>
       </div>
     </NavDropdown>
