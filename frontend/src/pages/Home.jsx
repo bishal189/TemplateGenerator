@@ -34,14 +34,14 @@ const Home = () => {
           <h2 className="text-3xl font-bold md-2">Find Your Document</h2>
 
           <div className="border border-gray-950 rounded-lg p-1 mt-3 flex items-center content-center justify-center bg-violet-50">
-            <RiSearch2Line className="text-3xl align-middle" />
+            <RiSearch2Line className="text-3xl align-middle bg-violet-50" />
             <input
               className="w-full py-2 px-3 outline-none bg-violet-50"
               type="text"
               placeholder="Search documents and fonts"
             />
 
-            <button className="w-1/6 mx-1 py-2 font-bold rounded-sm bg-violet-600 border-2 border-violet-600 hover:bg-white hover:text-violet-600 transition-all">
+            <button className="w-1/6  mx-1 py-2 font-bold rounded-sm text-white bg-violet-600 border-2 border-violet-600 hover:bg-white hover:text-violet-600 transition-all">
               Search
             </button>
           </div>
