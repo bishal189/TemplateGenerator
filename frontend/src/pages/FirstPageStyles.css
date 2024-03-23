@@ -1,0 +1,67 @@
+/* FirstPageStyles.css */
+
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.table-container {
+  flex: 1;
+  padding: 5.5em;
+  display: flex;
+  justify-content: center; /* Horizontally center the content */
+}
+
+
+.custom-table {
+  width: 30%;
+  height: 30%;
+}
+/* FirstPageStyles.css */
+
+.dropdown-container {
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-toggle {
+  border: 1px solid black;
+  background-color: white;
+  width: 50px; /* Adjust width */
+  height: 50px; /* Adjust height */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 30px;
+  margin-left: 10px; /* Adjust margin as needed */
+}
+
+/* FirstPageStyles.css */
+
+.dropdown-menu {
+  position: absolute;
+  top: calc(100% - 80px); /* Adjust the value to move the dropdown menu up */
+  left: 0;
+  z-index: 1000;
+  display: none;
+  min-width: 10rem;
+  padding: 2em;
+  font-size: 1rem;
+  color: #212529;
+  text-align: left;
+  list-style: none;
+  background-color: #fff;
+  border: none;
+  border-radius: 0.25rem;
+  transition: opacity 0.15s;
+}
+
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-toggle::after {
+  display: none;
+}
