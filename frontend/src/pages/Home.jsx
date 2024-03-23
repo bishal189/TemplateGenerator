@@ -7,6 +7,7 @@ import { HowItWorks } from "../components/howItWorks";
 import { WhyChooseTemplate } from "../components/chooseTemplate";
 import bbb from "../assets/bbb.webp";
 import TrustPilot from "../assets/pt.png";
+import GetTheMost from "../components/GetTheMost";
 
 const Home = () => {
   return (
@@ -118,6 +119,7 @@ const Home = () => {
 
       <HowItWorks />
       <WhyChooseTemplate />
+      <GetTheMost />
       <Footer />
     </>
   );
