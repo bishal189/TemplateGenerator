@@ -1,0 +1,73 @@
+[
+  {
+    "title": "Lease Type",
+    "path": "/leasetype"
+  },
+  {
+    "title": "Premesis",
+    "childrens": [
+      {
+        "title": "Housing Type",
+        "path": "/login"
+      },
+      {
+        "title": "Parking and Storage",
+        "path": "/register"
+      },
+      {
+        "title": "Furnishing",
+        "path": "/forgot-password"
+      },
+      {
+        "title": "Condition of the Premisis",
+        "path": "/reset-password"
+      },
+      {
+        "title": "Aditional Description",
+        "path": "/reset-password"
+      },
+      {
+        "title": "Address",
+        "path": "/reset-password"
+      }
+    ]
+  },
+  {
+    "title": "Parties",
+    "icon": "bi-person-fill",
+    "childrens": [
+      {
+        "title": "Profile",
+        "path": "/profile"
+      },
+      {
+        "title": "Logout",
+        "path": "/logout"
+      }
+    ]
+  },
+  {
+    "title": "Advance",
+    "icon": "bi-view-list",
+    "path": "/advance"
+  },
+  {
+    "title": "Support",
+    "icon": "bi-question-circle-fill",
+    "childrens": [
+      {
+        "title": "Profile",
+        "path": "/profile"
+      },
+      {
+        "title": "Logout",
+        "path": "/logout"
+      }
+    ]
+  },
+  {
+    "title": "Report Bug",
+    "icon": "bi-bug",
+    "path": "/report-bug"
+  }
+]
