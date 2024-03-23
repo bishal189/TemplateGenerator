@@ -4,6 +4,7 @@ import "./App.css";
 import Home from "./pages/Home";
 import Signin from "./components/Signin/Signin";
 import Register from "./components/SignUp/Register";
+import Sidebar from "./components/template/Sidebar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
             <Route path="/" element={<Home />} />
             <Route path="/signin" element={<Signin />} />
             <Route path="/signup" element={<Register />} />
+            <Route path="/templates" element={<Sidebar/>} />
           </Routes>
         </Router>
       }
