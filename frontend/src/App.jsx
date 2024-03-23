@@ -5,7 +5,6 @@ import Home from "./pages/Home";
 import Templating from "./pages/Templating";
 import Signin from "./components/Signin/Signin";
 import Register from "./components/SignUp/Register";
-import Sidebar from "./components/template/Sidebar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
