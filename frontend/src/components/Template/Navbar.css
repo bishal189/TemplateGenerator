@@ -1,0 +1,47 @@
+.white-bar-container{
+    display: flex;
+    /* border: 2px solid red; */
+    width: 530px;
+    margin: 0 auto;
+    align-items: center;
+    margin-top: 2rem;
+    height: 40px;
+    /* border: 1px solid rgba(40,50,80,.54)!important; */
+}
+
+.first ,.second,.third,.fourth,.fifth {
+    display: flex;
+    align-items: center;
+    color: rgba(40,50,80,.54);
+    border: 1px solid rgba(40,50,80,.54);
+    padding: 0.5rem;
+    width: 155px;
+    justify-content: center;
+    
+
+}
+
+.first{
+    border-radius: 3px 0 0 3px;
+}
+.fifth{
+    border-top-right-radius:3px ;
+    border-bottom-right-radius:3px ;
+}
+
+
+button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    color: inherit;
+    display: flex;
+    align-items: center;
+  }
+  
+  button svg {
+    margin-right: 0.5rem;
+  }
+  
