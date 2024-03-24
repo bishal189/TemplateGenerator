@@ -1,5 +1,4 @@
-
-import Sidebar from "../components/template/Sidebar";
+import Sidebar from "../components/Template/Sidebar";
 
 const Templating = () => {
   return (

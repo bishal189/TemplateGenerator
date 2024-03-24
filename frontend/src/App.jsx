@@ -5,9 +5,9 @@ import Home from "./pages/Home";
 import Templating from "./pages/Templating";
 import Signin from "./components/Signin/Signin";
 import Register from "./components/SignUp/Register";
-import TemplatePage from "./components/template/TemplatePage";
+import TemplatePage from "./components/Template/TemplatePage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import  FirstPage  from "../src/components/template/FirstPage";
+import FirstPage from "../src/components/Template/FirstPage";
 
 function App() {
   return (
