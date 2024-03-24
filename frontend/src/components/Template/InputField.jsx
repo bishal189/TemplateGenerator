@@ -1,24 +1,27 @@
+import React from 'react'
 import PropTypes from 'prop-types';
-import "./InputField.css";
 
-const InputField = ({ title }) => {
+import "./InputField.css"
+const InputField = (props) => {
   return (
-    <section className="form-section_question-section__1E7Nj">
-      <h3><div className="form-section_question-ask__2z7Oj">{title}</div></h3>
-      <div className="text-input_container__crGA3">
-        <div>
-          <div className="Input-default">
-            <input name="agent_name" type="text" placeholder="Enter full name" data-type="" className="Input-input-579a4a text-input_input__lnI9P" value="" />
-          </div>
-          <div className="Input-error-message-6da351"></div>
-        </div>
-      </div>
-    </section>
-  );
+    <section class="form-section_question-section__1E7Nj">
+    <h3><div class="form-section_question-ask__2z7Oj">{props.title}</div></h3>
+    <div class="text-input_container__crGA3">
+    
+    <div>
+    <div class="Input-default">
+        <input onChange={(e)=>props.onChange(e)}  type="text" placeholder={props.placeholder} data-type="" className="Input-input-579a4a text-input_input__lnI9P" name={props.field} value={props.value[props.field]} />
+    </div>
+    <div class="Input-error-message-6da351">
+    </div>
+    
+    </div>
+    </div>
+  </section>
+  )
 }
-
 InputField.propTypes = {
   title: PropTypes.string.isRequired
 };
 
-export default InputField;
+export default InputField

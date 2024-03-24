@@ -1,0 +1,59 @@
+[client_first_name] [client_middle_name] [client_last_name]
+[client_address]
+[client_city], [client_state] [client_postal_code]
+SSN: [ss_number]
+DOB: [bdate]
+I am communicating because as in, Civil Action No. 1:23-cv-2659 FEDERAL TRADE
+COMMISSION, and CONSUMER FINANCIAL PROTECTION BUREAU, Plaintiffs, v.
+TRANSUNION RENTAL SCREENING SOLUTIONS, INC., a Delaware corporation, and
+TRANS UNION LLC, a Delaware limited liability company, Defendants, I am also a victim
+of said case.
+On numerous recent occasions I have checked my credit reports and noticed accounts
+that are not mine! Please remove the accounts immediately. Pursuant to § 621 of the
+FCRA, 15 U.S.C. § 1681s, a violation of the FCRA constitutes an unfair or deceptive act or
+practice in or affecting commerce, in violation of Section 5(a) of the FTC Act, 15 U.S.C. §
+45(a). The List of accounts below has violated my federally protected consumer rights to
+privacy and confidentiality under 15 USC 1681.
+The FCRA imposes several obligations on Consumer Reporting Agencies, including
+obligations to: (1) follow reasonable procedures to assure the maximum possible
+accuracy of the information in Consumer Reports, 15 U.S.C. § 1681e(b), and (2) upon a
+consumer’s request, disclose to the consumer all information contained in the
+consumer’s file and the sources of the information, 15 U.S.C. § 1681g(a). 16. Pursuant to
+§ 621 of the FCRA, 15 U.S.C. § 1681s, a violation of the FCRA constitutes an unfair or
+deceptive act or practice in or affecting commerce, in violation of Section 5(a) of the FTC
+Act, 15 U.S.C. § 45(a).
+Under 15 U.S.C. § 1681c-2 a consumer reporting agency shall block the reporting of any
+information in the file of a consumer that the consumer identifies as information that
+resulted from an alleged identity theft, not later than 4 business days after the date of
+receipt. It has been 30 days and you are in violation of this law because I am a victim of
+identity theft! These unverified/unvalidated accounts should not be furnished on my
+consumer report as they are in violation Under 15 U.S.C. § 1681b - Permissible purposes
+of consumer reports (a) in general subject to subsection (c) any consumer reporting
+agency may furnish a consumer report under the following circumstances, and no other:
+(2) In accordance with the WRITTEN INSTRUCTION of the consumer to whom it relates. I
+never gave any consumer reporting agency any WRITTEN CONSENT to report anything
+on my consumer report which violates my rights as a federal protected consumer.
+Instruction: Please remove the false reporting listed accounts :
+[account , dispute_reason_in_bullet_list]
+15 U.S.C. 1681s-2 ( A ) ( 1 ) A person shall not furnish any information relating to a
+consumer to any consumer reporting agency if the person knows or has reasonable
+cause to believe that the information is inaccurate.
+If said accounts are in fact believed to be correct, provide documentation from the
+original creditor bearing my signature as validation that in fact those accounts are
+legitimate. That documentation is to be sent to the Consumer Financial Protection
+Bureau (“CFPB”) as well as sent to me via certified mail, as per the Fair Credit Reporting
+Act 15 U.S. Code 1681i. Procedure in case of disputed accuracy. Also 15 U.S. Code 1611.
+Criminal liability for willful and knowing violation. I am keeping a careful record of your
+actions, including Method of Verification, I DO NOT CONSENT to e-oscar or any means of
+automated verification. In maintaining a careful record, I am filing a complaint with the
+Consumer Financial Protection Bureau for your erroneous reporting of the item (s) and
+non-compliance.
+I further remind you, as in Wegner vs. TransUnion Corp., No. 95-6445
+(C.D.Cal.Nov.14,1995 ), you may be liable for the willful non-compliance, and for failure to
+respond satisfactorily I will seek {$1000.00} per violation for : 1 ) Defamation 2 ) Negligent
+Enablement of Identity Fraud 3 ) Violations of the Fair Credit Reporting Act. Please
+govern yourself accordingly,
+Thank you for your assistance.
+Regards,
+[client_first_name] [client_last_name]
+[ss_number]

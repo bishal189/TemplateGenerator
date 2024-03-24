@@ -29,10 +29,6 @@ APPEND_SLASH = False
 
 ALLOWED_HOSTS = ['*']
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",  # React development server
-    
-]
 
 # Application definition
 
@@ -46,14 +42,11 @@ INSTALLED_APPS = [
     'authapp',
     'rest_framework',
     'corsheaders',
-
-    
-   
+    'templategenerateapp',
 ]
 
 MIDDLEWARE = [
         'corsheaders.middleware.CorsMiddleware',
-
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -67,7 +60,8 @@ MIDDLEWARE = [
 CORS_ALLOW_CREDENTIALS = True
 
 CORS_ALLOWED_ORIGINS = [
-    "https://templategenerator9.netlify.app"
+    "https://templategenerator9.netlify.app",
+    "http://localhost:5173",
 ]
 
 ROOT_URLCONF = 'templateProject.urls'

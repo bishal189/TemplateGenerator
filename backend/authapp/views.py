@@ -8,7 +8,6 @@ from django.contrib.auth import authenticate
 
 @api_view(['POST'])
 def register(request):
-    print('hello world')
     try:
         data = json.loads(request.body)
         email = data.get('email')  # Added email extraction
