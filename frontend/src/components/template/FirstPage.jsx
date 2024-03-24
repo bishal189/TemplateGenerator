@@ -37,14 +37,14 @@ function FirstPage() {
   const handleContinueEsign = () => {
     // Add your logic here to continue with E-Sign
    
-    setShowEsignConfirmation(true); // Hide confirmation
+    setShowEsignConfirmation(false); // Hide confirmation
   };
 
   // Function to handle canceling E-Sign
   const handleCancelEsign = () => {
     // Add your logic here to cancel E-Sign
    
-    setShowEsignConfirmation(true); // Hide confirmation
+    setShowEsignConfirmation(false); // Hide confirmation
   };
 
   return (
@@ -115,10 +115,10 @@ function FirstPage() {
                         will be made in PDF format. Your original draft will
                         remain intact.
                       </p>
-                      <Button variant="primary" onClick={handleContinueEsign}>
+                      <Button variant="primary" className=".btn-primary" onClick={handleContinueEsign}>
                         Continue
                       </Button>
-                      <Button variant="primary"  onClick={handleCancelEsign}>
+                      <Button variant="primary" className=".btn-primar"  onClick={handleCancelEsign}>
                         Cancel
                       </Button>
                     </div>

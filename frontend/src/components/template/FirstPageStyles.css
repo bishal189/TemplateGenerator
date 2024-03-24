@@ -127,3 +127,7 @@
   visibility: visible;
   opacity: 1;
 }
+.btn-primary,
+.btn-secondary {
+  color: inherit; /* Set the color to inherit to retain default color */
+}
