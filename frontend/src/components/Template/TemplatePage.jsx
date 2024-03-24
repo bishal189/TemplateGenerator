@@ -26,10 +26,10 @@ function TemplatePage() {
   const steps = [
     {
       fields: [
-        <InputField key="1" title="Middle Name" />,
-        <InputField key="2" title="Last Name" />,
-        <InputField key="3" title="Client City" />,
-        <InputField key="4" title="Client State" />,
+        <InputField key="1" title="First Name"placeholder="Enter First Name" field="client_first_name" />,
+        <InputField key="2" title="Middle Name" placeholder="Enter Middle Name" field="client_middle_name"/>,
+        <InputField key="3" title="Last Name" placeholder="Enter Last Name" field="client_last_name"/>,
+        <InputField key="4" title="Address"placeholder="Enter Street Address" field="client_address" />,
       ],
       title:"Who is the Agent?",
       description:'The "Agent", also known as the "Attorney-in-Fact" is a responsible and trustworthy person such as a relative, friend, lawyer, accountant, or professional.'
@@ -37,18 +37,19 @@ function TemplatePage() {
     },
     {
       fields: [
-        <InputField key="5" title="SSN number" />,
-        <InputField key="6" title="Client State" />,
-        <Datepicker key="7" title="Date of birth(DOB)" />,
-        <InputField key="8" title="Account" />,
+        <InputField key="5" placeholder="Enter City"title="City" field="client_city"/>,
+        <InputField key="6" placeholder="Enter State" title="State"field="client_state" />,
+        <Datepicker key="7" title="Date of birth(DOB)" field="bdate" />,
+        <InputField key="8" placeholder="Enter Postal Code"title="Postal" field="client_postal"/>,
       ],
       title:'What information should I include about the receiving party?',
       description:"Include the receiving party's full name and address as part of the contact information to be listed on the document. The receiving party is the person or company who is promising not to disclose the confidential information or data that they receive."
     },
     {
       fields: [
-        <InputField key="9" title="Dispute Reason In Bullet Point" />,
-        <InputField key="10" title="SS Number " />,
+        <InputField key="9" placeholder="Enter SS Number" title="SS Number " field="ss_number"/>,
+        <InputField key="10" placeholder="Enter Account Detail"title="Account" field="account" />,
+        <InputField key="10" placeholder="Enter Dispute Reason"title="Dispute Reason" field="dispute_reason_in_bullet_list" />,
       ],
       title:'Lease Types',
       description:`
