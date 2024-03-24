@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import PropTypes from 'prop-types'; // Import PropTypes
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './InputField.css';
@@ -31,6 +32,10 @@ const Datepicker = ({ title }) => {
       </div>
     </section>
   );
+};
+
+Datepicker.propTypes = {
+  title: PropTypes.string.isRequired // Define the prop types
 };
 
 export default Datepicker;
