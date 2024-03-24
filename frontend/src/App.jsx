@@ -8,6 +8,7 @@ import Register from "./components/SignUp/Register";
 import TemplatePage from "./components/Template/TemplatePage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import FirstPage from "../src/components/Template/FirstPage";
+import Navbar  from "./components/Template/Navbar";
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path="/templates" element={<Templating />} />
             <Route path="/firstpage" element={<FirstPage />} />
             <Route path="/pages" element={<TemplatePage />} />
+            <Route path="/navbar" element={<Navbar />} />
           </Routes>
         </Router>
       }
