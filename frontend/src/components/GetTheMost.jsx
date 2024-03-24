@@ -1,4 +1,4 @@
-import React from "react";
+
 import GetTheMostImg from "../assets/getthemost.png";
 
 const GetTheMost = () => {

@@ -1,5 +1,5 @@
-import React from "react";
-import Sidebar from "../components/Template/Sidebar";
+
+import Sidebar from "../components/template/Sidebar";
 
 const Templating = () => {
   return (
