@@ -7,6 +7,8 @@ from django.contrib.auth import authenticate
 import pdfplumber
 from docx import Document
 import os
+from django.http import FileResponse
+from urllib.parse import quote
 
 def replace_placeholder(doc, placeholder, replacement):
     for paragraph in doc.paragraphs:
@@ -67,8 +69,23 @@ def pdf_generator_from_template(request):
         command = "abiword --to=pdf output.docx output.pdf"
         os.system(command)
         print(replacements)
+
         return Response({'message':"Sucessfull"},status=200)
+
     except Exception as e:
         error=str(e)
         print(error)
         return Response({'error':f"Unexpected error occured {error}"},status=400)
+
+@api_view(['GET'])
+def download_file(request,filename):
+    try:
+            # Return a response to download the pdf file
+        response = FileResponse(open(filename, 'rb'))
+        response['Content-Disposition'] = 'attachment; filename="%s"' % quote('your_doc.pdf')
+
+        return response
+    except Exception as e:
+        error=str(e)
+        print(error)
+        return Response({'error':f"unexpected errror{error}"},status=400)

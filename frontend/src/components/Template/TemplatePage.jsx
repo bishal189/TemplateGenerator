@@ -5,7 +5,7 @@ import './Sidebar';
 import InputField from './InputField';
 import Datepicker from './DatePicker';
 import SideDescription from './SideDescription';
-
+import axios from 'axios'
 
 
 function TemplatePage() {
@@ -26,6 +26,7 @@ function TemplatePage() {
   }
   const [clientData,setClientData]=useState(intialClientData)
   const [selectedDate, setSelectedDate] = useState('');
+  const [downloader,setDownloader]=useState(false)
   useEffect(()=>{
     console.log(clientData)
   })
@@ -36,8 +37,16 @@ function TemplatePage() {
       [name]:value,
     }))
   }
-  function handleSubmit(){
-
+ async function handleSubmit(){
+  try{
+    const response=await axios.post('http://localhost:8000/api/template/generate/',clientData)
+    setDownloader(true)
+    await axios.get('http://localhost:8000/api/template/downloadfile/output.docx/')
+    await axios.get('http://localhost:8000/api/template/downloadfile/output.pdf/')
+    console.log(response.data)
+  }catch(err){
+    console.error(err)
+  }
   }
 
   const [step, setStep] = useState(0);
@@ -50,6 +59,7 @@ function TemplatePage() {
     if (step > 0) {
       setStep(step - 1);
     }
+    setDownloader(false)
   };
 
   const handleSkipClick = () => {
@@ -123,6 +133,13 @@ function TemplatePage() {
 
               
               </div>
+                {downloader &&(
+        <>
+      <a className="btn btn-primary" href="http://localhost:8000/api/template/downloadfile/output.pdf/">Download Pdf</a>
+
+      <a className="btn btn-outline-primary" href="http://localhost:8000/api/template/downloadfile/output.docx/">Download Docx</a>
+        </>)
+      }
             </footer>
           </div>
           <div className='right_container'>
@@ -132,6 +149,8 @@ function TemplatePage() {
           </div>
         </div>
       </section>
+
+
     </>
   );
 }
