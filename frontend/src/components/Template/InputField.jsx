@@ -8,7 +8,7 @@ const InputField = (props) => {
     
     <div>
     <div class="Input-default">
-        <input name="agent_name" type="text" placeholder={props.title} data-type="" class="Input-input-579a4a text-input_input__lnI9P" value="" />
+        <input onChange={(e)=>props.onChange(e)}  type="text" placeholder={props.placeholder} data-type="" className="Input-input-579a4a text-input_input__lnI9P" name={props.field} value={props.value[props.field]} />
     </div>
     <div class="Input-error-message-6da351">
     </div>

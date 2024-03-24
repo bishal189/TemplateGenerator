@@ -1,12 +1,42 @@
 
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import './TemplatePage.css';
 import './Sidebar';
 import InputField from './InputField';
 import Datepicker from './DatePicker';
 import SideDescription from './SideDescription';
 
+
+
 function TemplatePage() {
+
+  const intialClientData={
+    client_first_name:"",
+    client_last_name:"",
+    client_middle_name:"",
+    client_address:"",
+    client_city:"",
+    client_state:"",
+    client_postal:"",
+    bdate:"",
+    account:"",
+    dispute_reason_in_bullet_list:"",
+    ss_number:"",
+
+  }
+  const [clientData,setClientData]=useState(intialClientData)
+  const [selectedDate, setSelectedDate] = useState(null);
+
+  function onChangeClientData(e){
+    const {name,value}=e.target
+    setClientData((prev)=>({
+      ...prev,
+      [name]:value,
+    }))
+  }
+useEffect(()=>{
+  console.log(clientData)
+})
   const [step, setStep] = useState(0);
 
   const handleNextClick = () => {
@@ -26,10 +56,10 @@ function TemplatePage() {
   const steps = [
     {
       fields: [
-        <InputField key="1" title="First Name"placeholder="Enter First Name" field="client_first_name" />,
-        <InputField key="2" title="Middle Name" placeholder="Enter Middle Name" field="client_middle_name"/>,
-        <InputField key="3" title="Last Name" placeholder="Enter Last Name" field="client_last_name"/>,
-        <InputField key="4" title="Address"placeholder="Enter Street Address" field="client_address" />,
+        <InputField key="1" onChange={onChangeClientData} value={clientData} title="First Name"placeholder="Enter First Name" field="client_first_name" />,
+        <InputField key="2"onChange={onChangeClientData}value={clientData} title="Middle Name" placeholder="Enter Middle Name" field="client_middle_name"/>,
+        <InputField key="3"onChange={onChangeClientData}value={clientData} title="Last Name" placeholder="Enter Last Name" field="client_last_name"/>,
+        <InputField key="4"onChange={onChangeClientData}value={clientData} title="Address"placeholder="Enter Street Address" field="client_address" />,
       ],
       title:"Who is the Agent?",
       description:'The "Agent", also known as the "Attorney-in-Fact" is a responsible and trustworthy person such as a relative, friend, lawyer, accountant, or professional.'
@@ -37,19 +67,19 @@ function TemplatePage() {
     },
     {
       fields: [
-        <InputField key="5" placeholder="Enter City"title="City" field="client_city"/>,
-        <InputField key="6" placeholder="Enter State" title="State"field="client_state" />,
-        <Datepicker key="7" title="Date of birth(DOB)" field="bdate" />,
-        <InputField key="8" placeholder="Enter Postal Code"title="Postal" field="client_postal"/>,
+        <InputField key="5"onChange={onChangeClientData}value={clientData} placeholder="Enter City"title="City" field="client_city"/>,
+        <InputField key="6" onChange={onChangeClientData}value={clientData}placeholder="Enter State" title="State"field="client_state" />,
+        <Datepicker key="7" selectedDate={selectedDate} setSelectedDate={setSelectedDate} title="Date of birth(DOB)" field="bdate" />,
+        <InputField key="8"onChange={onChangeClientData}value={clientData} placeholder="Enter Postal Code"title="Postal" field="client_postal"/>,
       ],
       title:'What information should I include about the receiving party?',
       description:"Include the receiving party's full name and address as part of the contact information to be listed on the document. The receiving party is the person or company who is promising not to disclose the confidential information or data that they receive."
     },
     {
       fields: [
-        <InputField key="9" placeholder="Enter SS Number" title="SS Number " field="ss_number"/>,
-        <InputField key="10" placeholder="Enter Account Detail"title="Account" field="account" />,
-        <InputField key="10" placeholder="Enter Dispute Reason"title="Dispute Reason" field="dispute_reason_in_bullet_list" />,
+        <InputField key="9"onChange={onChangeClientData}value={clientData} placeholder="Enter SS Number" title="SS Number " field="ss_number"/>,
+        <InputField key="10"onChange={onChangeClientData}value={clientData} placeholder="Enter Account Detail"title="Account" field="account" />,
+        <InputField key="11"onChange={onChangeClientData}value={clientData} placeholder="Enter Dispute Reason"title="Dispute Reason" field="dispute_reason_in_bullet_list" />,
       ],
       title:'Lease Types',
       description:`
