@@ -78,7 +78,9 @@ function TemplatePage() {
                 </button>
               </div>
               <div className="form-control-panel_button-group__1goiC">
-                <button data-id="skip" type="button" onClick={handleSkipClick} className="Button-button-d0484b form-control-panel_btn-skip__3zOem Button-medium-afe9a1 Button-link-778592">Skip</button>
+              {step !== steps.length - 1 && (
+                  <button data-id="skip" type="button" onClick={handleSkipClick} className="Button-button-d0484b form-control-panel_btn-skip__3zOem Button-medium-afe9a1 Button-link-778592">Skip</button>
+                )}
                   <button data-id="next" type="button" onClick={handleNextClick} className="Button-button-d0484b Button-medium-afe9a1 Button-primary-233931">  {step === steps.length - 1 ? 'Save' : 'Next'}</button>
               
               </div>
