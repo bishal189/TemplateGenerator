@@ -6,6 +6,7 @@
     align-items: center;
     margin-top: 2rem;
     height: 40px;
+    position: relative;
     /* border: 1px solid rgba(40,50,80,.54)!important; */
 }
 
@@ -17,6 +18,7 @@
     padding: 0.5rem;
     width: 155px;
     justify-content: center;
+    cursor: pointer;
     
 
 }
@@ -24,9 +26,10 @@
 .first{
     border-radius: 3px 0 0 3px;
 }
+
 .fifth{
-    border-top-right-radius:3px ;
-    border-bottom-right-radius:3px ;
+    border-top-right-radius:3px!important ;
+    border-bottom-right-radius:3px !important;
 }
 
 
@@ -45,3 +48,142 @@ button {
     margin-right: 0.5rem;
   }
   
+
+
+.last{
+    display: flex;
+    align-items: center;
+    border: 1px solid rgba(40,50,80,.54);
+    border-radius: 3px;
+    background: #fff;
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+    margin-left: 1rem;
+  }
+
+
+
+  /* for hover effect  */
+
+
+  .first:hover .tooltip1,
+  .second:hover .tooltip2,
+  .third:hover .tooltip3
+{
+    /* Show tooltip on hover for each navigation item */
+    display: block;
+    opacity: 1;
+  }
+  
+  .tooltip1 {
+    width: 500px;
+    background-color: red;
+    border: 1px solid #5586ff;
+    position: absolute;
+    background: #eef4ff;
+    color:black; /* Tooltip text color */
+    padding: 5px; /* Add some padding to the tooltip */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    opacity: 0; /* Hide tooltip initially */
+    transition: opacity 0.3s ease-in-out; /* Smooth transition on hover */
+    z-index: 100; /* Ensure tooltip stays above other elements */
+    /* Position the tooltip relative to the navigation item */
+    top: calc(100% + 5px); /* Position below the item with some offset */
+    left: 10%;
+    transform: translateX(-50%); /* Center the tooltip horizontally */
+    max-width: 200px; /* Set a maximum width for the tooltip */
+  }
+
+
+
+  .tooltip2 {
+    width: 500px;
+    background-color: red;
+    border: 1px solid #5586ff;
+    position: absolute;
+    background: #eef4ff;
+    color:black; /* Tooltip text color */
+    padding: 5px; /* Add some padding to the tooltip */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    opacity: 0; /* Hide tooltip initially */
+    transition: opacity 0.3s ease-in-out; /* Smooth transition on hover */
+    z-index: 100; /* Ensure tooltip stays above other elements */
+    /* Position the tooltip relative to the navigation item */
+    top: calc(100% + 5px); /* Position below the item with some offset */
+    left: 35%;
+    transform: translateX(-50%); /* Center the tooltip horizontally */
+    max-width: 200px; /* Set a maximum width for the tooltip */
+  }
+  .tooltip3 {
+    width: 500px;
+    background-color: red;
+    border: 1px solid #5586ff;
+    position: absolute;
+    background: #eef4ff;
+    color:black; /* Tooltip text color */
+    padding: 5px; /* Add some padding to the tooltip */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    opacity: 0; /* Hide tooltip initially */
+    transition: opacity 0.3s ease-in-out; /* Smooth transition on hover */
+    z-index: 100; /* Ensure tooltip stays above other elements */
+    /* Position the tooltip relative to the navigation item */
+    top: calc(100% + 5px); /* Position below the item with some offset */
+    left: 55%;
+    transform: translateX(-50%); /* Center the tooltip horizontally */
+    max-width: 200px; /* Set a maximum width for the tooltip */
+  }
+  
+  
+  .tooltip4{
+    width: 500px;
+    background-color: red;
+    border: 1px solid #5586ff;
+    position: absolute;
+    background: #eef4ff;
+    color:black; /* Tooltip text color */
+    padding: 5px; /* Add some padding to the tooltip */
+    border-radius: 5px; /* Rounded corners */
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+    opacity: 0; /* Hide tooltip initially */
+    transition: opacity 0.3s ease-in-out; /* Smooth transition on hover */
+    z-index: 100; /* Ensure tooltip stays above other elements */
+    /* Position the tooltip relative to the navigation item */
+    top: calc(100% + 5px); /* Position below the item with some offset */
+    left: 55%;
+    transform: translateX(-50%); /* Center the tooltip horizontally */
+    max-width: 200px; /* Set a maximum width for the tooltip */
+  }
+  
+
+  .internal_doc{
+    font-size: large;
+    font-weight: bold;
+    padding: 0.4rem;
+    margin: 8px 0 ;
+    background: #eef4ff;
+
+
+  }
+
+  .button{
+    margin: 0 auto;
+    width: auto;
+    background-color: #5586ff;
+    padding: 6px;
+    width: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1rem;
+    
+  }
+  .button span{
+    background-color: #5586ff;
+  }
