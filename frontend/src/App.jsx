@@ -6,6 +6,7 @@ import Templating from "./pages/Templating";
 import Signin from "./components/Signin/Signin";
 import Register from "./components/SignUp/Register";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import  FirstPage  from "../src/components/template/FirstPage";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
             <Route path="/signin" element={<Signin />} />
             <Route path="/signup" element={<Register />} />
             <Route path="/templates" element={<Templating />} />
+            <Route path="/firstpage" element={<FirstPage />} />
           </Routes>
         </Router>
       }
