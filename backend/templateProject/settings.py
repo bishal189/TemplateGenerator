@@ -46,9 +46,7 @@ INSTALLED_APPS = [
     'authapp',
     'rest_framework',
     'corsheaders',
-
-    
-   
+    'templategenerateapp',
 ]
 
 MIDDLEWARE = [
