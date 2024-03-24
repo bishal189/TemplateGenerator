@@ -25,8 +25,10 @@ function TemplatePage() {
 
   }
   const [clientData,setClientData]=useState(intialClientData)
-  const [selectedDate, setSelectedDate] = useState(null);
-
+  const [selectedDate, setSelectedDate] = useState('');
+  useEffect(()=>{
+    console.log(clientData)
+  })
   function onChangeClientData(e){
     const {name,value}=e.target
     setClientData((prev)=>({
@@ -34,9 +36,10 @@ function TemplatePage() {
       [name]:value,
     }))
   }
-useEffect(()=>{
-  console.log(clientData)
-})
+  function handleSubmit(){
+
+  }
+
   const [step, setStep] = useState(0);
 
   const handleNextClick = () => {
@@ -69,7 +72,7 @@ useEffect(()=>{
       fields: [
         <InputField key="5"onChange={onChangeClientData}value={clientData} placeholder="Enter City"title="City" field="client_city"/>,
         <InputField key="6" onChange={onChangeClientData}value={clientData}placeholder="Enter State" title="State"field="client_state" />,
-        <Datepicker key="7" selectedDate={selectedDate} setSelectedDate={setSelectedDate} title="Date of birth(DOB)" field="bdate" />,
+        <Datepicker key="7"  selectedDate={selectedDate} setSelectedDate={setSelectedDate} setClientData={setClientData} title="Date of birth(DOB)" field="bdate" />,
         <InputField key="8"onChange={onChangeClientData}value={clientData} placeholder="Enter Postal Code"title="Postal" field="client_postal"/>,
       ],
       title:'What information should I include about the receiving party?',
@@ -113,7 +116,7 @@ useEffect(()=>{
                   <button data-id="skip" type="button" onClick={handleSkipClick} className="Button-button-d0484b form-control-panel_btn-skip__3zOem Button-medium-afe9a1 Button-link-778592">Skip</button>
                 )}
                 {step==steps.length-1?
-                (<button  type="button"  className="Button-button-d0484b Button-medium-afe9a1 Button-primary-233931">Save</button>)
+                (<button  type="button" onClick={handleSubmit}  className="Button-button-d0484b Button-medium-afe9a1 Button-primary-233931">Save</button>)
                     :
                      (<button data-id="next" type="button" onClick={handleNextClick} className="Button-button-d0484b Button-medium-afe9a1 Button-primary-233931">  Next</button>)
                 }
