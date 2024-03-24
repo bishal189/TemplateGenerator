@@ -42,7 +42,7 @@ const Home = () => {
               placeholder="Search documents and fonts"
             />
 
-            <button className="w-1/6  mx-1 py-2 font-bold rounded-sm text-white bg-blue-600 border-2 border-blue-600 hover:bg-white hover:text-blue-600 transition-all">
+            <button className="w-1/6  mx-1 py-2 font-bold rounded-sm text-white bg-blue-500  hover:bg-blue-400 transition-all">
               Search
             </button>
           </div>
