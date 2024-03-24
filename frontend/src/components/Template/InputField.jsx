@@ -1,4 +1,6 @@
 import React from 'react'
+import PropTypes from 'prop-types';
+
 import "./InputField.css"
 const InputField = (props) => {
   return (
@@ -18,5 +20,8 @@ const InputField = (props) => {
   </section>
   )
 }
+InputField.propTypes = {
+  title: PropTypes.string.isRequired
+};
 
 export default InputField

@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { useState } from 'react';
+import PropTypes from 'prop-types'; // Import PropTypes
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import './InputField.css';
@@ -13,12 +15,14 @@ const Datepicker = (props) => {
       ...prev,
       'bdate':formattedDate
     }));
+
   };
 
   return (
     <section className="form-section_question-section__1E7Nj">
       <h3>
         <div className="form-section_question-ask__2z7Oj">{props.title}</div>
+
       </h3>
       <div className="text-input_container__crGA3">
         <div>
@@ -26,6 +30,7 @@ const Datepicker = (props) => {
             <DatePicker
               name={props.field}
               selected={props.selectedDate}
+
               onChange={handleDateChange}
               dateFormat="MM/dd/yyyy" // Adjust as needed
               placeholderText="Enter Date of Birth"
@@ -38,5 +43,11 @@ const Datepicker = (props) => {
     </section>
   );
 };
+
+
+Datepicker.propTypes = {
+  title: PropTypes.string.isRequired // Define the prop types
+};
+
 
 export default Datepicker;

@@ -60,6 +60,7 @@ function TemplatePage() {
       setStep(step - 1);
     }
     setDownloader(false)
+
   };
 
   const handleSkipClick = () => {
@@ -73,6 +74,7 @@ function TemplatePage() {
         <InputField key="2"onChange={onChangeClientData}value={clientData} title="Middle Name" placeholder="Enter Middle Name" field="client_middle_name"/>,
         <InputField key="3"onChange={onChangeClientData}value={clientData} title="Last Name" placeholder="Enter Last Name" field="client_last_name"/>,
         <InputField key="4"onChange={onChangeClientData}value={clientData} title="Address"placeholder="Enter Street Address" field="client_address" />,
+
       ],
       title:"Who is the Agent?",
       description:'The "Agent", also known as the "Attorney-in-Fact" is a responsible and trustworthy person such as a relative, friend, lawyer, accountant, or professional.'
@@ -84,6 +86,7 @@ function TemplatePage() {
         <InputField key="6" onChange={onChangeClientData}value={clientData}placeholder="Enter State" title="State"field="client_state" />,
         <Datepicker key="7"  selectedDate={selectedDate} setSelectedDate={setSelectedDate} setClientData={setClientData} title="Date of birth(DOB)" field="bdate" />,
         <InputField key="8"onChange={onChangeClientData}value={clientData} placeholder="Enter Postal Code"title="Postal" field="client_postal"/>,
+
       ],
       title:'What information should I include about the receiving party?',
       description:"Include the receiving party's full name and address as part of the contact information to be listed on the document. The receiving party is the person or company who is promising not to disclose the confidential information or data that they receive."
@@ -93,6 +96,7 @@ function TemplatePage() {
         <InputField key="9"onChange={onChangeClientData}value={clientData} placeholder="Enter SS Number" title="SS Number " field="ss_number"/>,
         <InputField key="10"onChange={onChangeClientData}value={clientData} placeholder="Enter Account Detail"title="Account" field="account" />,
         <InputField key="11"onChange={onChangeClientData}value={clientData} placeholder="Enter Dispute Reason"title="Dispute Reason" field="dispute_reason_in_bullet_list" />,
+
       ],
       title:'Lease Types',
       description:`
@@ -140,6 +144,7 @@ function TemplatePage() {
       <a className="btn btn-outline-primary" href="http://localhost:8000/api/template/downloadfile/output.docx/">Download Docx</a>
         </>)
       }
+
             </footer>
           </div>
           <div className='right_container'>
@@ -149,7 +154,6 @@ function TemplatePage() {
           </div>
         </div>
       </section>
-
 
     </>
   );

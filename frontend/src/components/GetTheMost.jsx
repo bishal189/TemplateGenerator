@@ -1,4 +1,3 @@
-
 import GetTheMostImg from "../assets/getthemost.png";
 
 const GetTheMost = () => {
@@ -15,7 +14,7 @@ const GetTheMost = () => {
             regularly updated forms for every stage of business growth.
           </p>
 
-          <button className="mt-3 rounded p-2 text-white font-bold border-2 border-blue-500 bg-blue-500 hover:text-blue-500 hover:bg-white">
+          <button className="mt-3 rounded p-2 text-white font-bold border-2 bg-blue-500 hover:text-blue-500 hover:bg-blue-400">
             See All Real Estate Forms
           </button>
         </div>
