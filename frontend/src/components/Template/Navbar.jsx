@@ -4,7 +4,11 @@ import { useState } from 'react';
 
 const Navbar = () => {
     const [showTooltip, setShowTooltip] = useState(false);
-    const [click, setClick] = useState(false);
+    const [showPopup, setShowPopup] = useState(false);
+
+    const togglePopup = () => {
+        setShowPopup(!showPopup);
+    };
 
     const handleMouseEnter = () => {
         setShowTooltip(true);
@@ -13,10 +17,8 @@ const Navbar = () => {
     const handleMouseLeave = () => {
         setShowTooltip(false);
     };
-   
-    const handleClick=()=>{
-        setClick(true)
-    }
+
+
 
     return (
         <div className="white-bar-container">
@@ -48,10 +50,10 @@ const Navbar = () => {
             <div className='second' onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                 <div>
                     <svg width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path fillRule="evenodd" clipRule="evenodd" d="M4.63501 12.75H13.365V14.01H4.63501V12.75ZM13.365 7.125L9.00001 11.49L4.63501 7.125H7.12501V3.375H10.875V7.125H13.365Z" fill="#283250" fillOpacity="0.54"></path>
-                    <mask id="mask0_410_1311" style={{ maskType: "alpha" }} maskUnits="userSpaceOnUse" x="4" y="3" width="10" height="12"><path fillRule="evenodd" clipRule="evenodd" d="M4.63501 12.75H13.365V14.01H4.63501V12.75ZM13.365 7.125L9.00001 11.49L4.63501 7.125H7.12501V3.375H10.875V7.125H13.365Z" fill="white"></path></mask>
-                    <g mask="url(#mask0_410_1311)"></g>
-                </svg></div>
+                        <path fillRule="evenodd" clipRule="evenodd" d="M4.63501 12.75H13.365V14.01H4.63501V12.75ZM13.365 7.125L9.00001 11.49L4.63501 7.125H7.12501V3.375H10.875V7.125H13.365Z" fill="#283250" fillOpacity="0.54"></path>
+                        <mask id="mask0_410_1311" style={{ maskType: "alpha" }} maskUnits="userSpaceOnUse" x="4" y="3" width="10" height="12"><path fillRule="evenodd" clipRule="evenodd" d="M4.63501 12.75H13.365V14.01H4.63501V12.75ZM13.365 7.125L9.00001 11.49L4.63501 7.125H7.12501V3.375H10.875V7.125H13.365Z" fill="white"></path></mask>
+                        <g mask="url(#mask0_410_1311)"></g>
+                    </svg></div>
                 <div>Word</div>
                 {showTooltip && (
                     <div className="tooltip2">
@@ -78,7 +80,7 @@ const Navbar = () => {
                 {showTooltip && (
                     <div className="tooltip3">
                         <h1 className='internal_doc'>
-                            Download and Print Your 
+                            Download and Print Your
                             Document
                         </h1>
                         <button className='button'>
@@ -98,25 +100,53 @@ const Navbar = () => {
                 <div>
                     Print
                 </div>
-                
+
             </div>
 
-            <div className='last' onClick={handleClick}>
+            <div className='last' onClick={togglePopup}>
                 <div><svg width="12" height="24" viewBox="0 0 12 24" fill="none" xmlns="http://www.w3.org/2000/svg"><g id="Icon/24/more"><path id="Shape" fillRule="evenodd" clipRule="evenodd" d="M6.00049 8C7.10049 8 8.00049 7.1 8.00049 6C8.00049 4.9 7.10049 4 6.00049 4C4.90049 4 4.00049 4.9 4.00049 6C4.00049 7.1 4.90049 8 6.00049 8ZM6.00049 10C4.90049 10 4.00049 10.9 4.00049 12C4.00049 13.1 4.90049 14 6.00049 14C7.10049 14 8.00049 13.1 8.00049 12C8.00049 10.9 7.10049 10 6.00049 10ZM6.00049 16C4.90049 16 4.00049 16.9 4.00049 18C4.00049 19.1 4.90049 20 6.00049 20C7.10049 20 8.00049 19.1 8.00049 18C8.00049 16.9 7.10049 16 6.00049 16Z" fill="#283250" fillOpacity="0.54"></path></g></svg></div>
             </div>
-                    <div className="tooltip4">
-                        <h1 className='internal_doc'>
-                            Download and Print Your 
-                            Document
-                        </h1>
-                        <button className='button'>
-                            <span>Try for free</span>
 
-                        </button>
-
+            <div className={showPopup ? 'popup show' : 'popup'}>
+                <div className='rename'>
+                    <div className='rename1'>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M18 4V3C18 2.45 17.55 2 17 2H5C4.45 2 4 2.45 4 3V7C4 7.55 4.45 8 5 8H17C17.55 8 18 7.55 18 7V6H19V10H9V21C9 21.55 9.45 22 10 22H12C12.55 22 13 21.55 13 21V12H21V4H18Z" fill="#283250" fill-opacity="0.54"></path></svg>
                     </div>
-                
 
+                    <div className='rename2'>
+                        Rename
+                    </div>
+                </div>
+                <div className='rename'>
+                    <div className='rename1'>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 1H4C2.9 1 2 1.9 2 3V17H4V3H16V1ZM15 5L21 11V21C21 22.1 20.1 23 19 23H7.99C6.89 23 6 22.1 6 21L6.01 7C6.01 5.9 6.9 5 8 5H15ZM14 12H19.5L14 6.5V12Z" fill="#283250" fill-opacity="0.54"></path></svg>
+                    </div>
+
+                    <div className='rename2'>
+                        Duplicate
+                    </div>
+                </div>
+                <div className='rename'>
+                    <div className='rename1'>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 19C6 20.1 6.9 21 8 21H16C17.1 21 18 20.1 18 19V7H6V19ZM19 4H15.5L14.5 3H9.5L8.5 4H5V6H19V4Z" fill="#283250" fill-opacity="0.54"></path></svg>
+                    </div>
+
+                    <div className='rename2'>
+                       Move to Trash
+                    </div>
+                </div>
+                <div className='rename'>
+                    <div className='rename1'>
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21.5 20.675C21.5 21.0064 21.2314 21.275 20.9 21.275H20.5161C20.185 21.275 19.9198 21.006 19.8837 20.6769C19.7469 19.4278 19.1887 18.2554 18.2919 17.3585C17.253 16.3197 15.8445 15.7353 14.3754 15.7337H10.5519V20.8111L3.19533 13.4546C2.75011 13.0092 2.5 12.4053 2.5 11.7756C2.5 11.1458 2.75011 10.5419 3.19533 10.0965L10.5519 2.73999V7.81745H14.3754C16.2643 7.81955 18.0753 8.57085 19.4109 9.90651C20.7466 11.2422 21.4979 13.0531 21.5 14.942V20.675Z" fill="#283250" fill-opacity="0.54"></path></svg>
+                    </div>
+
+                    <div className='rename2'>
+                    Back Dashboard
+                    </div>
+                </div>
+
+
+            </div>
         </div>
     );
 };
