@@ -1,10 +1,10 @@
-import React from 'react';
+
 import './Navbar.css';
 import { useState } from 'react';
 
 const Navbar = () => {
     const [showTooltip, setShowTooltip] = useState(false);
-    const [click, setClick] = useState(false);
+    const [, setClick] = useState(false);
 
     const handleMouseEnter = () => {
         setShowTooltip(true);
