@@ -1,5 +1,5 @@
 
-import React, { useState,useEffect } from 'react';
+import  { useState,useEffect } from 'react';
 import './TemplatePage.css';
 import './Sidebar';
 import InputField from './InputField';

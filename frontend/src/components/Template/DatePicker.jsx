@@ -1,11 +1,11 @@
-import React, { useState } from "react";
-import PropTypes from "prop-types"; // Import PropTypes
+
+import PropTypes from "prop-types";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import "./InputField.css";
 
-const Datepicker = props => {
-  const handleDateChange = date => {
+const Datepicker = (props) => {
+  const handleDateChange = (date) => {
     props.setSelectedDate(date);
     const formattedDate = `${(date.getMonth() + 1)
       .toString()
@@ -14,9 +14,9 @@ const Datepicker = props => {
       .toString()
       .padStart(2, "0")}-${date.getFullYear()}`;
     console.log(formattedDate);
-    props.setClientData(prev => ({
+    props.setClientData((prev) => ({
       ...prev,
-      bdate: formattedDate
+      bdate: formattedDate,
     }));
   };
 
@@ -45,7 +45,11 @@ const Datepicker = props => {
 };
 
 Datepicker.propTypes = {
-  title: PropTypes.string.isRequired // Define the prop types
+  title: PropTypes.string.isRequired,
+  setSelectedDate: PropTypes.func.isRequired, // Add setSelectedDate to propTypes
+  setClientData: PropTypes.func.isRequired, // Add setClientData to propTypes
+  field: PropTypes.string.isRequired, // Add field to propTypes
+  selectedDate: PropTypes.instanceOf(Date), // Add selectedDate to propTypes
 };
 
 export default Datepicker;

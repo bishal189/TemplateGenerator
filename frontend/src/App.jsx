@@ -10,6 +10,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Navbar  from "./components/Template/Navbar";
 
+
 function App() {
   return (
     <>
@@ -23,6 +24,8 @@ function App() {
             
             <Route path="/pages" element={<TemplatePage />} />
             <Route path="/navbar" element={<Navbar />} />
+            
+            
           </Routes>
         </Router>
       }
