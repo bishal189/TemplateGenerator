@@ -82,7 +82,7 @@ def download_file(request,filename):
     try:
             # Return a response to download the pdf file
         response = FileResponse(open(filename, 'rb'))
-        response['Content-Disposition'] = 'attachment; filename="%s"' % quote('your_doc.pdf')
+        response['Content-Disposition'] = 'attachment; filename="%s"' % quote(filename)
 
         return response
     except Exception as e:
