@@ -1,11 +1,18 @@
 import React from 'react';
 import './Navbar.css';
 import { useState } from 'react';
+import RenamePopup from './RenamePopup';
+
 
 const Navbar = () => {
     const [showTooltip, setShowTooltip] = useState(false);
     const [showPopup, setShowPopup] = useState(false);
     const [model, setModel] = useState(false);
+    const [isRenameClicked, setIsRenameClicked] = useState(false);
+    const [isDuplicateClicked, setIsDuplicateClicked] = useState(false);
+    const [trash, setTrash] = useState(false);
+  
+   
 
     const togglePopup = () => {
         setShowPopup(!showPopup);
@@ -21,11 +28,40 @@ const Navbar = () => {
 
     const handleRenameClick = () => {
         setModel(true);
-        togglePopup()
+        setIsRenameClicked(true);
+        togglePopup();
     };
+
     const removeRenameClick = () => {
         setModel(false);
+        setIsRenameClicked(false);
     };
+    const handleDuplicateClick = () => {
+        setModel(true);
+        setIsDuplicateClicked(true);
+        togglePopup();
+    };
+
+    const removeTrashClick = () => {
+        setModel(false);
+        setTrash(false);
+    };
+    const handleTrashClick = () => {
+        setModel(true);
+        setTrash(true);
+        togglePopup();
+    };
+
+    const removeDuplicateClick = () => {
+        setModel(false);
+        setIsDuplicateClicked(false);
+    };
+
+const handleDashboard=()=>{
+    console.log('hello')
+    window.location.href = "/";
+}
+
 
 
 
@@ -128,8 +164,8 @@ const Navbar = () => {
                         Rename
                     </div>
                 </div>
-                <div className='rename'>
-                    <div className='rename1'>
+                <div className='rename' onClick={handleDuplicateClick}>
+                    <div className='rename1' >
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 1H4C2.9 1 2 1.9 2 3V17H4V3H16V1ZM15 5L21 11V21C21 22.1 20.1 23 19 23H7.99C6.89 23 6 22.1 6 21L6.01 7C6.01 5.9 6.9 5 8 5H15ZM14 12H19.5L14 6.5V12Z" fill="#283250" fill-opacity="0.54"></path></svg>
                     </div>
 
@@ -137,8 +173,8 @@ const Navbar = () => {
                         Duplicate
                     </div>
                 </div>
-                <div className='rename'>
-                    <div className='rename1'>
+                <div className='rename' onClick={handleTrashClick}>
+                    <div className='rename1' >
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M6 19C6 20.1 6.9 21 8 21H16C17.1 21 18 20.1 18 19V7H6V19ZM19 4H15.5L14.5 3H9.5L8.5 4H5V6H19V4Z" fill="#283250" fill-opacity="0.54"></path></svg>
                     </div>
 
@@ -146,7 +182,7 @@ const Navbar = () => {
                        Move to Trash
                     </div>
                 </div>
-                <div className='rename'>
+                <div className='rename' onClick={handleDashboard} >
                     <div className='rename1'>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21.5 20.675C21.5 21.0064 21.2314 21.275 20.9 21.275H20.5161C20.185 21.275 19.9198 21.006 19.8837 20.6769C19.7469 19.4278 19.1887 18.2554 18.2919 17.3585C17.253 16.3197 15.8445 15.7353 14.3754 15.7337H10.5519V20.8111L3.19533 13.4546C2.75011 13.0092 2.5 12.4053 2.5 11.7756C2.5 11.1458 2.75011 10.5419 3.19533 10.0965L10.5519 2.73999V7.81745H14.3754C16.2643 7.81955 18.0753 8.57085 19.4109 9.90651C20.7466 11.2422 21.4979 13.0531 21.5 14.942V20.675Z" fill="#283250" fill-opacity="0.54"></path></svg>
                     </div>
@@ -159,23 +195,26 @@ const Navbar = () => {
 
             </div>
 
-
-            {model && (
-                <div className='popup-container'>
-                    <div className='internalpopup-container'>
-                        <button className='close-btn' onClick={removeRenameClick}>
-                            <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.41421 6L11.7071 1.70711C12.0976 1.31658 12.0976 0.683417 11.7071 0.292893C11.3166 -0.0976308 10.6834 -0.0976308 10.2929 0.292893L6 4.58579L1.70711 0.292893C1.31658 -0.0976308 0.683417 -0.0976308 0.292893 0.292893C-0.0976308 0.683417 -0.0976308 1.31658 0.292893 1.70711L4.58579 6L0.292893 10.2929C-0.0976308 10.6834 -0.0976308 11.3166 0.292893 11.7071C0.488408 11.9026 0.744227 12 1 12C1.25577 12 1.51159 11.9026 1.70711 11.7071L6 7.41421L10.2929 11.7071C10.4884 11.9026 10.7442 12 11 12C11.2558 12 11.5116 11.9026 11.7071 11.7071C12.0976 11.3166 12.0976 10.6834 11.7071 10.2929L7.41421 6Z" fill="#283250"></path></svg>
-                        </button>
-                        <div className='heading'><h2>Rename File</h2></div>
-                        
-                        <input className='text-input' type="text" placeholder="Enter new name" />
-                        <div className='btn-container'>
-                            <button className='cancel-btn' onClick={togglePopup}>Cancel</button>
-                            <button className='save-btn'>Save</button>
-                        </div>
-                    </div>
-                </div>
+            {isRenameClicked && (
+                <RenamePopup model={model} removeRenameClick={removeRenameClick} rename={true} placeholder='Lease/Rental Agreement' title='Rename'/>
             )}
+            {
+                isDuplicateClicked &&(
+                    <RenamePopup model={model} removeRenameClick={removeDuplicateClick} duplicate={true} placeholder="Copy of Lease/Rental Agreement" title='Duplicate'/>
+                )
+
+            }
+            {
+                trash &&(
+                    <RenamePopup model={model} removeRenameClick={removeTrashClick} trash={true} placeholder="Copy of Lease/Rental Agreement" title='Move to Trash' save_btn='Move to Trash'/>
+                )
+
+            }
+
+        
+
+           
+           
         </div>
     );
 };
