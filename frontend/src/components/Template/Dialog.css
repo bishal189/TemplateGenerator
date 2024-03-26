@@ -1,0 +1,120 @@
+.styles_modal-container__3KhOy {
+    display: block !important;
+    width: 539px;
+    padding: 32px !important;
+    border-radius: 8px !important;
+    font-family: roboto, sans-serif;
+    box-sizing: border-box;
+    box-shadow: 0 4px 20px 0 rgba(99,127,195,.15);
+    background-color: #fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 11;
+    max-width: 540px;
+}
+
+.styles_base-modal-box-close__teKRI {
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
+    background: url(/builder/static/media/close-little.fc334c86.svg) 50% no-repeat;
+    float: right;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    -webkit-font-smoothing: antialiased;
+}
+
+.styles_confirmation-content__up389 {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 16px;
+    line-height: 26px;
+    color: #283250;
+    box-sizing: border-box;
+    display: block;
+    unicode-bidi: isolate;
+    font-family: roboto, sans-serif;
+}
+
+.styles_input__2YSc7 {
+    height: 48px;
+    width: 100%;
+    margin-bottom: -16px;
+    border-radius: 5px;
+    border: none;
+    background: rgba(40, 50, 80, .05);
+    padding: 12px;
+    font-size: 20px;
+    font-family: inherit;
+}
+
+.styles_modal-container__3KhOy, .styles_confirmation-actions__3q-qM {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 32px;
+}
+
+
+
+
+.styles_modal-container__3KhOy .styles_confirmation-actions__3q-qM .styles_button__3Lban.styles_cancel__1w8Jo {
+    padding: 11px 17px;
+    margin-right: 16px;
+    color: rgba(40, 50, 80, .54);
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    background: 0 0;
+    border: 1px solid rgba(40, 50, 80, .38);
+    height: 40px;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    width: auto;
+    text-transform: none;
+    overflow: visible;
+    
+}
+
+.styles_modal-container__3KhOy .styles_confirmation-actions__3q-qM .styles_button__3Lban.styles_confirm__1uI0l {
+    padding: 11px 27px;
+    min-width: 155px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    border: 0.5px solid rgba(40, 50, 80, .54);
+    color: #fff;
+    background-color: #5586ff;
+    height: 40px;
+    padding: 0 20px;
+    width: auto;
+    font-size: 16px;
+    font-family: roboto, sans-serif;
+    font-weight: 400;
+    border: 0;
+    border-radius: 5px;
+    margin: 0;
+    padding: 0;
+    outline: none;
+    cursor: pointer;
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    background-color: #5586ff;
+}
+
+.styles_modal-container__3KhOy .styles_confirmation-description__1whQ2 {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 28px;
+    color: rgba(40, 50, 80, .54);
+}
+

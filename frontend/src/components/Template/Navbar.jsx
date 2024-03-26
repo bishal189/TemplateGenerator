@@ -1,10 +1,27 @@
 
 import './Navbar.css';
 import { useState } from 'react';
+import RenameDialog from './RenameDialog';
+import DuplicateDialog from './DuplicateDialog';
+import MoveToTrashDialog from './MoveToTrashDialog';
 
 const Navbar = () => {
     const [showTooltip, setShowTooltip] = useState(false);
     const [showPopup, setShowPopup] = useState(false);
+    const [showRenameDialog, setShowRenameDialog] = useState(false);
+    const [showDuplicateDialog, setShowDuplicateDialog] = useState(false);
+    const [showMoveToTrashDialog, setShowMoveToTrashDialog] = useState(false);
+
+    const toggleRenameDialog = () => {
+        setShowRenameDialog(!showRenameDialog);
+    };
+    const toggleDuplicateDialog = () => {
+        setShowDuplicateDialog(!showDuplicateDialog);
+    };
+
+    const toggleMoveToTrashDialog = () => {
+        setShowMoveToTrashDialog(!showMoveToTrashDialog);
+    };
 
     const togglePopup = () => {
         setShowPopup(!showPopup);
@@ -108,7 +125,7 @@ const Navbar = () => {
             </div>
 
             <div className={showPopup ? 'popup show' : 'popup'}>
-                <div className='rename'>
+                <div className='rename' onClick={toggleRenameDialog}>
                     <div className='rename1'>
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M18 4V3C18 2.45 17.55 2 17 2H5C4.45 2 4 2.45 4 3V7C4 7.55 4.45 8 5 8H17C17.55 8 18 7.55 18 7V6H19V10H9V21C9 21.55 9.45 22 10 22H12C12.55 22 13 21.55 13 21V12H21V4H18Z" fill="#283250" fillOpacity="0.54"></path></svg>
                     </div>
@@ -116,8 +133,9 @@ const Navbar = () => {
                     <div className='rename2'>
                         Rename
                     </div>
+                    <RenameDialog isOpen={showRenameDialog} onClose={toggleRenameDialog} />
                 </div>
-                <div className='rename'>
+                <div className='rename' onClick={toggleDuplicateDialog} >
                     <div className='rename1'>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M16 1H4C2.9 1 2 1.9 2 3V17H4V3H16V1ZM15 5L21 11V21C21 22.1 20.1 23 19 23H7.99C6.89 23 6 22.1 6 21L6.01 7C6.01 5.9 6.9 5 8 5H15ZM14 12H19.5L14 6.5V12Z" fill="#283250" fillOpacity="0.54"></path></svg>
                     </div>
@@ -125,8 +143,9 @@ const Navbar = () => {
                     <div className='rename2'>
                         Duplicate
                     </div>
+                    <DuplicateDialog isOpen={showDuplicateDialog} onClose={toggleDuplicateDialog} />
                 </div>
-                <div className='rename'>
+                <div className='rename' onClick={toggleMoveToTrashDialog}>
                     <div className='rename1'>
                     <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fillRule="evenodd" clipRule="evenodd" d="M6 19C6 20.1 6.9 21 8 21H16C17.1 21 18 20.1 18 19V7H6V19ZM19 4H15.5L14.5 3H9.5L8.5 4H5V6H19V4Z" fill="#283250" fillOpacity="0.54"></path></svg>
                     </div>
@@ -134,6 +153,7 @@ const Navbar = () => {
                     <div className='rename2'>
                        Move to Trash
                     </div>
+                    <MoveToTrashDialog isOpen={showMoveToTrashDialog} onClose={toggleMoveToTrashDialog} />
                 </div>
                 <div className='rename'>
                     <div className='rename1'>
