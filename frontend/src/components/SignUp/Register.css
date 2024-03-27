@@ -1,0 +1,53 @@
+.sociallogin {
+  display: flex;
+  justify-content: space-between;
+}
+
+.logingoogle {
+  width: 48%;
+  height: 48px;
+  border-radius: 3px;
+  border: 1px solid rgba(40, 50, 80, 0.38);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 16px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.logingoogle img {
+  margin: 6px;
+}
+
+.loginfacebook {
+  width: 48%;
+  height: 48px;
+  border-radius: 3px;
+  border: 1px solid rgba(40, 50, 80, 0.38);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 16px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.loginfacebook img {
+  margin: 6px;
+}
+
+p {
+  margin-top: 12px !important;
+}
+
+.policy {
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  color: rgba(40, 50, 80, 0.54);
+  margin-top: 17px;
+}
+.policy a {
+  text-decoration: underline;
+}

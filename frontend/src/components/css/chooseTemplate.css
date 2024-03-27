@@ -1,0 +1,68 @@
+.section-choose {
+    text-align:center;
+}
+.section-choose .header {
+  max-width: 44em;
+  margin: 0 auto calc(1.575rem + 3.9vw);
+}
+.section-choose > .wrap {
+  width: 100%;
+  max-width: 73.5em;
+  margin: 0 auto;
+  padding-right: .75em;
+  padding-left: .75em;
+}
+.section-choose .header h2 {
+  margin-bottom: .4166666667em;
+  font-size: calc(1.45rem + 2.4vw);
+}
+
+.section-choose .header p {
+  color: #757575;
+  color: #5c6680;
+  font-size: 1rem;
+}
+.section-choose .inner{
+      display: flex;
+}
+.section-choose .inner .block {
+  flex: 1 1 0;
+}
+.section-choose .inner .block svg {
+  fill: #4b62f9;
+height: 4rem;
+width: 6rem;
+  margin: 0 auto calc(1.3rem + 0.6vw);
+}
+
+
+.section-choose .inner .block h3 {
+  margin-bottom: .0606060606em;
+  color: #292e41;
+  font-size: calc(1.5375rem + 3.45vw);
+}
+
+
+.section-choose .inner .block p {
+  color: #abb0c3;
+  font-weight: 600;
+  font-size: calc(1.26rem + 0.12vw);
+}
+
+ @media (min-width: 1200px){
+.section-choose {
+  margin-bottom: 6.25rem;
+}
+.section-choose .header{
+    margin: 0 auto 4.5rem;
+}
+.section-choose .header h2 {
+  font-size: 2.5rem;
+}
+.section-choose .inner .block h3 {
+  font-size: 3.6rem;
+}
+.section-choose .inner .block p {
+  font-size: 1rem;
+}
+}
