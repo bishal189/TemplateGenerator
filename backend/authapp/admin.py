@@ -1,4 +1,5 @@
 from django.contrib import admin
+
 from .models import Account
 class Account_admin(admin.ModelAdmin):
     list_display=('email','last_login','is_active','is_superadmin')

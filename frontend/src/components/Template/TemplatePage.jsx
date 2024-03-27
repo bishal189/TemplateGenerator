@@ -5,6 +5,7 @@ import InputField from "./InputField";
 import Datepicker from "./DatePicker";
 import SideDescription from "./SideDescription";
 import axios from "axios";
+import Navbar from "./Navbar";
 
 function TemplatePage() {
   const intialClientData = {
@@ -185,6 +186,7 @@ function TemplatePage() {
   return (
     <>
       <section className="main_sidesection">
+        <Navbar />
         <div className="main_container">
           <div className="left_container">
             <div className="form-section_document-name__1euyJ">
