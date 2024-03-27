@@ -1,3 +1,4 @@
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "tailwindcss/tailwind.css";
 import "./App.css";
@@ -14,6 +15,7 @@ import Navbar  from "./components/Template/Navbar";
 function App() {
   return (
     <>
+
       {
         <Router>
           <Routes>

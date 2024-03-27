@@ -1,5 +1,6 @@
+
 nohup.out
-*/nohup.out
+
 # .gitignore for Django
 #ignoring the input video
 *.aac

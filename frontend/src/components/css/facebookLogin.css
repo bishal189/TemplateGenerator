@@ -1,0 +1,30 @@
+.facebook-btn{
+background-color:white;
+color:black;
+  width: 430px;
+  height: 48px;
+  border-radius: 3px;
+  border: 1px solid rgba(40,50,80,.38);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 14px 16px;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.facebook-text{
+    font-family: roboto,sans-serif;
+font-size: 16px;
+font-weight: 400;
+font-stretch: normal;
+font-style: normal;
+line-height: normal;
+letter-spacing: normal;
+color: #283250;
+margin-left: 30px;
+}
+
+#g_id_signin {
+    display: none;
+}

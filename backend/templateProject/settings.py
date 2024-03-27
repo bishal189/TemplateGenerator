@@ -9,7 +9,11 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
+import os
+from dotenv import load_dotenv
 
+# Load environment variables from .env file
+load_dotenv()
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -26,7 +30,6 @@ SECRET_KEY = 'django-insecure-pg-p2ibdsmkafmk29o$o9(q_i$tgd((0#!m_86djy2oug^(hyz
 DEBUG = True
 APPEND_SLASH = False
 
-
 ALLOWED_HOSTS = ['*']
 
 
@@ -39,6 +42,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
     'authapp',
     'rest_framework',
     'corsheaders',
@@ -80,6 +84,11 @@ TEMPLATES = [
             ],
         },
     },
+]
+CORS_ALLOW_CREDENTIALS = True
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5000",
 ]
 
 
