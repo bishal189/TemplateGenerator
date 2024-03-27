@@ -6,7 +6,9 @@ from rest_framework.decorators import api_view
 from django.contrib.auth import authenticate
 import pdfplumber
 from docx import Document
+from django.template import loader
 import os
+import pdfkit
 from django.http import FileResponse
 from urllib.parse import quote
 
@@ -38,7 +40,6 @@ def pdf_to_docx(pdf_path, docx_path, replacements):
         # Replace placeholders with actual content
         for placeholder, replacement in replacements.items():
             replace_placeholder(doc, placeholder, replacement)
-
         # Save the updated Word document
         doc.save(docx_path)
 
@@ -66,9 +67,23 @@ def pdf_generator_from_template(request):
         docx_path = 'output.docx'
         output_pdf_path='output.pdf'
         pdf_to_docx(pdf_path, docx_path, replacements)
-        command = "abiword --to=pdf output.docx output.pdf"
-        os.system(command)
-        print(replacements)
+        # command = "abiword --to=pdf output.docx output.pdf"
+        # os.system(command)
+        context = {
+        'client_first_name': data.get('client_first_name'),
+        'client_middle_name': data.get('client_middle_name'),
+        'client_last_name': data.get('client_last_name'),
+        'client_address': data.get('client_address'),
+        'client_city': data.get('client_city'),
+        'client_state': data.get('client_state'),
+        'client_postal_code': data.get('client_postal'),
+        'ss_number': data.get('ss_number'),
+        'bdate': data.get('bdate'),
+        'account':data.get('account'),
+        'dispute_reason_in_bullet_list':data.get('dispute_reason_in_bullet_list'),
+            }
+        template_to_pdf(context)
+
 
         return Response({'message':"Sucessfull"},status=200)
 
@@ -89,3 +104,22 @@ def download_file(request,filename):
         error=str(e)
         print(error)
         return Response({'error':f"unexpected errror{error}"},status=400)
+
+def template_to_pdf(context):
+    print(context)
+    template = loader.get_template('template1.html')
+    html_content = template.render(context)
+
+    # Generate PDF from the HTML content
+    pdf_file = pdfkit.from_string(html_content, False)
+    file_path='./pdf_file.pdf'
+    with open(file_path, 'wb') as f:
+        f.write(pdf_file)
+
+    # Create a response with the PDF content
+    response = HttpResponse(pdf_file, content_type='application/pdf')
+
+    # Set the filename for download
+    response['Content-Disposition'] = f'attachment; filename="invoice_{order.order_number}.pdf"'
+
+    return response
