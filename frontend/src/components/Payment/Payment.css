@@ -1,0 +1,29 @@
+.main_payment {
+    margin: 0 60px;
+}
+
+
+h1 {
+    font-family: "Poppins", sans-serif;
+    font-style: normal;
+    font-weight: 700 !important;
+    font-size: 48px !important;
+    line-height: 48px;
+    text-align: center;
+    color: #1c1f2a;
+    max-width: 1440px;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0 0 8px;
+    margin: 0 auto -8px !important;
+}
+
+
+
+.curve {
+
+    width: 100%;
+    height: 40px;
+    background: url(https://legaltemplates.net/payment/static/media/divider.45116818.svg) no-repeat 50%;
+}
