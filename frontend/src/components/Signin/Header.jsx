@@ -6,7 +6,7 @@ const Header = () => {
     <div className='Header'>
        <img src={logosvg} alt="imgerror"  className='logo'  />
        
-        </div>
+      </div>
   )
 }
 
