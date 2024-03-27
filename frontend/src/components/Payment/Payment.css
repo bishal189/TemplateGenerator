@@ -265,3 +265,192 @@ h2 {
     margin-top: 8px;
 
 }
+
+
+.payment_form h4 {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 24px;
+    color: #1c1f2a;
+    margin: 0 0 24px;
+    padding: 0;
+    margin-top: 27px;
+    position: relative;
+}
+
+.logodiv {
+    position: absolute;
+    top: -10px;
+    right: 0;
+}
+
+
+
+/* .trustedsite {
+    width: 120px;
+    height: 50px;
+    display: inline-block;
+    background-image: url(;
+    background-size: contain;
+    background-position: center top;
+    background-repeat: no-repeat;
+    cursor: pointer;
+} */
+
+
+#trust {
+    width: 120px;
+    height: 50px;
+    display: inline-block;
+    background-image: url(https://cdn.ywxi.net/meter/legaltemplates.net/213.svg?ts=1711398368921&l=en);
+    background-size: contain;
+    background-position: center top;
+    background-repeat: no-repeat;
+    cursor: pointer;
+
+
+
+
+}
+
+
+/* for credit form  */
+
+.credit_form {
+    flex: 1 1 auto;
+    flex-direction: row;
+    display: flex;
+}
+
+.inner_credit_form {
+    flex: 1 1 auto;
+    flex-direction: column;
+    display: flex;
+}
+
+.main_credit {
+    margin-bottom: 24px;
+    flex: 1 1 auto;
+    flex-direction: column;
+    display: flex;
+}
+
+label {
+    display: block;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #5a5f73;
+}
+
+.cardnumber {
+    flex: 1 1 auto;
+    flex-direction: row;
+    display: flex;
+}
+
+.innercardnumber {
+    flex: 1 1 auto;
+    position: relative;
+    flex-direction: column;
+    display: flex;
+}
+
+.innercardnumber label {
+    display: block;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 16px;
+    color: #5a5f73;
+}
+
+
+.innercarddiv {
+    margin-top: 8px;
+    padding-top: 11px;
+    background: #fcfcff;
+    border: 1px solid rgba(41, 41, 41, .24);
+    border-radius: 4px;
+    height: 42px;
+    line-height: 42px;
+    font-weight: 500;
+    font-size: 16px;
+    color: #272c42;
+    padding-left: 9px;
+    box-sizing: border-box;
+}
+
+
+.iframediv{
+    margin: 0 !important;
+padding: 0 !important;
+border: none !important;
+display: block !important;
+background: transparent !important;
+position: relative !important;
+opacity: 1 !important;
+}
+
+.iframe{
+   
+        border: medium none !important;
+        margin: 0px !important;
+        padding: 0px !important;
+        width: 1px !important;
+        min-width: 100% !important;
+        overflow: hidden !important;
+        display: block !important;
+        height: 19.2px;
+      
+}
+
+
+.info{
+    margin: 15px 0;
+    display: flex;
+flex-direction: column;
+border: 1px solid rgba(41,41,41,.2);
+border-radius: 4px;
+font-family: "Poppins",sans-serif;
+font-style: normal;
+max-width: 826px;
+padding: 32px;
+box-sizing: border-box;
+}
+
+
+.billsummary{
+    font-family: "Poppins",sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 20px;
+line-height: 24px;
+color: #1c1f2a;
+}
+
+
+
+.traildiv{
+    padding: 30px 0 25px !important;
+font-family: "Poppins",sans-serif;
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 21px;
+color: #272c42;
+border-bottom: 1px solid #dadee7;
+display: flex;
+align-items: center;
+}
+
+
+
+.premiumtrial{
+    width: 250px;
+    flex: 1 1 auto;
+}
+
+.right{
+    text-align: right;
+}
+
