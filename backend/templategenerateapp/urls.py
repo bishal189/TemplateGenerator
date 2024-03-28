@@ -9,6 +9,6 @@ urlpatterns=[
     path('identity_theft_affidavit_template/',views.pdf_generator_from_identity_theft_affidavit_template),
     path('identity_theft_fcra_template/',views.pdf_generator_from_identity_theft_fcra_template),
     path('inquiry_template/',views.pdf_generator_from_inquiry_template),
-    path('personal_information_template/',pdf_generator_from_personal_information_template),
+    path('personal_information_template/',views.pdf_generator_from_personal_information_template),
     path('downloadfile/<filename>/',views.download_file)
     ]

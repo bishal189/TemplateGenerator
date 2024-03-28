@@ -37,7 +37,7 @@ function TemplatePage() {
   async function handleSubmit() {
     try {
       const response = await axiosInstance.post(
-        "/api/template/generate/",
+        "/api/template/account_template/",
         clientData
       );
       setDownloader(true);

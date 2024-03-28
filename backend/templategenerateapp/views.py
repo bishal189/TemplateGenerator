@@ -12,6 +12,7 @@ import pdfkit
 from django.http import FileResponse
 from urllib.parse import quote
 import secrets
+import string
 def generate_random_string(length):
     alphabet = string.ascii_letters + string.digits
     return ''.join(secrets.choice(alphabet) for _ in range(length))
@@ -84,7 +85,7 @@ def pdf_generator_from_account_template(request):
         'account':data.get('account'),
         'dispute_reason_in_bullet_list':data.get('dispute_reason_in_bullet_list'),
             }
-        pdf_path=template_to_pdf(context,"templates/ACCOUNTS_DOCUMENT.html",output_pdf_path)
+        pdf_path=template_to_pdf(context,"ACCOUNTS_DOCUMENT.html",output_pdf_path)
         print(pdf_path)
         return Response({'message':"Sucessfull"},status=200)
     except Exception as e:
@@ -186,7 +187,7 @@ def pdf_generator_from_bankruptcy_template(request):
         'bdate': data.get('bdate'),
         'bankruptcy':data.get('bankruptcy'),
         'bankruptcy_reason':data.get('bankruptcy_reason'),
-        'bankruptcy_instruction':data.get('bankruptcy_instruction'),),
+        'bankruptcy_instruction':data.get('bankruptcy_instruction'),
             }
         pdf_path=template_to_pdf(context,"templates/BANKRUPTCY_DOCUMENT.html",output_pdf_path)
         print(pdf_path)
