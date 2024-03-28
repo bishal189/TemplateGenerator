@@ -233,9 +233,10 @@ def pdf_generator_from_collection_template(request):
         'ss_number': data.get('ss_number'),
         'bdate': data.get('bdate'),
         'account':data.get('account'),
-        'dispute_reason_in_bullet_list':data.get('dispute_reason_in_bullet_list'),
+        'disputed_collection':data.get('disputed_collection'),
+        'disputed_collection_Instruction':data.get('disputed_collection_Instruction'),
             }
-        pdf_path=template_to_pdf(context,"templates/ACCOUNTS_DOCUMENT.html")
+        pdf_path=template_to_pdf(context,"templates/COLLECTION_DOCUMENT.html",output_pdf_path)
         return Response({'message':"Sucessfull"},status=200)
     except Exception as e:
         error=str(e)
@@ -243,10 +244,9 @@ def pdf_generator_from_collection_template(request):
         return Response({'error':f"Unexpected error occured {error}"},status=400)
 
 @api_view(['POST'])
-def pdf_generator_from_account_template(request):
+def pdf_generator_from_identity_theft_affidavit_template(request):
     try:
         data=json.loads(request.body)
-        combined_data = f"{data.get('account')} {data.get('dispute_reason_in_bullet_list')}"
         replacements = {
         '[client_first_name]': data.get('client_first_name'),
         '[client_middle_name]': data.get('client_middle_name'),
@@ -257,16 +257,19 @@ def pdf_generator_from_account_template(request):
         '[client_postal_code]': data.get('client_postal'),
         '[ss_number]': data.get('ss_number'),
         '[bdate]': data.get('bdate'),
-        '[account , dispute_reason_in_bullet_list]':combined_data
+        '[id_number]':data.get('id_number'),
+        '[time_at_address]':data.get('time_at_address'),
+        '[todays_current_date]':data.get('todays_current_date'),
+        '[amount_spent_fixing_credit]':data.get('amount_spent_fixing_credit'),
+        '[date_identity_theft_started]':data.get('date_identity_theft_started')
             }
-                random_characters=generate_random_string(8)
+        random_characters=generate_random_string(8)
+        print(random_characters)
+        pdf_path = 'pdf/IDENTITY THEFT AFFIDAVIT.pdf'
+        docx_path = f'generated_docx/IDENTITY_THEFT_AFFIDAVIT_{random_characters}.docx'
+        output_pdf_path=f'generated_pdf/IDENTITY_THEFT_AFFIDAVIT_{random_characters}.pdf'
 
-        pdf_path = 'pdf/ALL PURPOSE CREDIT DOCUMENT.pdf'
-        docx_path = 'genereated_docx/ALL_PURPOSE_CREDIT_DOCUMENT_.docx'
-        output_pdf_path='genereated_pdf/ALL_PURPOSE_CREDIT_DOCUMENT_.pdf'
         pdf_to_docx(pdf_path, docx_path, replacements)
-        # command = "abiword --to=pdf output.docx output.pdf"
-        # os.system(command)
         context = {
         'client_first_name': data.get('client_first_name'),
         'client_middle_name': data.get('client_middle_name'),
@@ -277,11 +280,13 @@ def pdf_generator_from_account_template(request):
         'client_postal_code': data.get('client_postal'),
         'ss_number': data.get('ss_number'),
         'bdate': data.get('bdate'),
-        'account':data.get('account'),
-        'dispute_reason_in_bullet_list':data.get('dispute_reason_in_bullet_list'),
+        'id_number':data.get('id_number'),
+        'time_at_address':data.get('time_at_address'),
+        'todays_current_date':data.get('todays_current_date'),
+        'amount_spent_fixing_credit':data.get('amount_spent_fixing_credit'),
+        'date_identity_theft_started':data.get('date_identity_theft_started')
             }
-        pdf_path=template_to_pdf(context,"templates/ACCOUNTS_DOCUMENT.html")
-        print(pdf_path)
+        pdf_path=template_to_pdf(context,"templates/IDENTITY_THEFT_AFFIDAVIT.html",output_pdf_path)
         return Response({'message':"Sucessfull"},status=200)
     except Exception as e:
         error=str(e)
