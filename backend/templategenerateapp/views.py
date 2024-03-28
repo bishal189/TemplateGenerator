@@ -51,7 +51,7 @@ def generate_random_string(length):
 def pdf_generator_from_account_template(request):
     try:
         data=json.loads(request.body)
-        combined_data = f"{data.get('account')} {data.get('dispute_reason_in_bullet_list')}"
+        # combined_data = f"{data.get('account')} {data.get('dispute_reason_in_bullet_list')}"
         # replacements = {
         # '[client_first_name]': data.get('client_first_name'),
         # '[client_middle_name]': data.get('client_middle_name'),
