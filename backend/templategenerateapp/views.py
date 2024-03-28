@@ -115,9 +115,9 @@ def pdf_generator_from_all_purpose_credit_template(request):
         }
         random_characters=generate_random_string(8)
 
-        pdf_path = '.pdf'
-        docx_path = 'output.docx'
-        output_pdf_path='output.pdf'
+        pdf_path = 'ALL PURPOSE CREDIT DOCUMENT.pdf'
+        docx_path = f'generated_docx/ALL_PURPOSE_CREDIT_DOCUMENT_{random_characters}.docx'
+        output_pdf_path=f'generated_pdf/ALL_PURPOSE_CREDIT_DOCUMENT_{random_characters}.pdf'
         pdf_to_docx(pdf_path, docx_path, replacements)
         # command = "abiword --to=pdf output.docx output.pdf"
         # os.system(command)
@@ -138,7 +138,7 @@ def pdf_generator_from_all_purpose_credit_template(request):
         'disputed_Inquiries':data.get('disputed_Inquiries'),
         'disputed_Inquiries_Instruction':data.get('disputed_Inquiries_Instruction')
         }
-        pdf_path=template_to_pdf(context,"templates/ACCOUNTS_DOCUMENT.html")
+        pdf_path=template_to_pdf(context,"templates/ALL_PURPOSE_CREDIT_DOCUMENT.html",output_pdf_path)
         print(pdf_path)
         return Response({'message':"Sucessfull"},status=200)
     except Exception as e:
