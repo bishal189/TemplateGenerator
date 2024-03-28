@@ -12,6 +12,7 @@ import Payment from "./components/Payment/Payment";
 import Navbar  from "./components/Template/Navbar";
 
 
+
 function App() {
   return (
     <>
@@ -27,6 +28,7 @@ function App() {
             <Route path="/pages" element={<TemplatePage />} />
             <Route path="/navbar" element={<Navbar />} />
             <Route path="/payment" element={<Payment/>} />
+          
             
             
           </Routes>
