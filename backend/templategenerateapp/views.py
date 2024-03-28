@@ -147,10 +147,9 @@ def pdf_generator_from_all_purpose_credit_template(request):
         return Response({'error':f"Unexpected error occured {error}"},status=400)
 
 @api_view(['POST'])
-def pdf_generator_from_account_template(request):
+def pdf_generator_from_bankruptcy_template(request):
     try:
         data=json.loads(request.body)
-        combined_data = f"{data.get('account')} {data.get('dispute_reason_in_bullet_list')}"
         replacements = {
         '[client_first_name]': data.get('client_first_name'),
         '[client_middle_name]': data.get('client_middle_name'),
@@ -161,13 +160,14 @@ def pdf_generator_from_account_template(request):
         '[client_postal_code]': data.get('client_postal'),
         '[ss_number]': data.get('ss_number'),
         '[bdate]': data.get('bdate'),
-        '[account , dispute_reason_in_bullet_list]':combined_data
+        '[bankruptcy]':data.get('bankruptcy'),
+        '[bankruptcy_reason]':data.get('bankruptcy_reason'),
+        '[bankruptcy_instruction]':data.get('bankruptcy_instruction'),
             }
-                random_characters=generate_random_string(8)
-
-        pdf_path = 'template.pdf'
-        docx_path = 'output.docx'
-        output_pdf_path='output.pdf'
+        random_characters=generate_random_string(8)
+        pdf_path = 'pdf/BANKRUPTCY DOCUMENT.pdf'
+        docx_path = f'generated_docx/BANKRUPTCY_DOCUMENT_{random_characters}.docx'
+        output_pdf_path=f'generated_pdf/BANKRUPTCY_DOCUMENT_{random_characters}.pdf'
         pdf_to_docx(pdf_path, docx_path, replacements)
         # command = "abiword --to=pdf output.docx output.pdf"
         # os.system(command)
@@ -181,10 +181,11 @@ def pdf_generator_from_account_template(request):
         'client_postal_code': data.get('client_postal'),
         'ss_number': data.get('ss_number'),
         'bdate': data.get('bdate'),
-        'account':data.get('account'),
-        'dispute_reason_in_bullet_list':data.get('dispute_reason_in_bullet_list'),
+        'bankruptcy':data.get('bankruptcy'),
+        'bankruptcy_reason':data.get('bankruptcy_reason'),
+        'bankruptcy_instruction':data.get('bankruptcy_instruction'),),
             }
-        pdf_path=template_to_pdf(context,"templates/ACCOUNTS_DOCUMENT.html")
+        pdf_path=template_to_pdf(context,"templates/BANKRUPTCY_DOCUMENT.html",output_pdf_path)
         print(pdf_path)
         return Response({'message':"Sucessfull"},status=200)
     except Exception as e:
