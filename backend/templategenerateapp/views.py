@@ -13,7 +13,6 @@ from django.http import FileResponse
 from urllib.parse import quote
 import secrets
 
-import fitz  # PyMuPDF
 import string
 def generate_random_string(length):
     alphabet = string.ascii_letters + string.digits
@@ -139,7 +138,7 @@ def pdf_generator_from_all_purpose_credit_template(request):
         'disputed_Inquiries':data.get('disputed_Inquiries'),
         'disputed_Inquiries_Instruction':data.get('disputed_Inquiries_Instruction')
         }
-        pdf_path=template_to_pdf(context,"templates/ALL_PURPOSE_CREDIT_DOCUMENT.html",output_pdf_path,docx_path)
+        pdf_path=template_to_pdf(context,"ALL_PURPOSE_CREDIT_DOCUMENT.html",output_pdf_path,docx_path)
         print(pdf_path)
         return Response({'message':"Sucessfull"},status=200)
     except Exception as e:
@@ -185,7 +184,7 @@ def pdf_generator_from_bankruptcy_template(request):
         'bankruptcy_reason':data.get('bankruptcy_reason'),
         'bankruptcy_instruction':data.get('bankruptcy_instruction'),
             }
-        pdf_path=template_to_pdf(context,"templates/BANKRUPTCY_DOCUMENT.html",output_pdf_path,docx_path)
+        pdf_path=template_to_pdf(context,"BANKRUPTCY_DOCUMENT.html",output_pdf_path,docx_path)
         print(pdf_path)
         return Response({'message':"Sucessfull"},status=200)
     except Exception as e:
@@ -232,7 +231,7 @@ def pdf_generator_from_collection_template(request):
         'disputed_collection':data.get('disputed_collection'),
         'disputed_collection_Instruction':data.get('disputed_collection_Instruction'),
             }
-        pdf_path=template_to_pdf(context,"templates/COLLECTION_DOCUMENT.html",output_pdf_path,docx_path)
+        pdf_path=template_to_pdf(context,"COLLECTION_DOCUMENT.html",output_pdf_path,docx_path)
         return Response({'message':"Sucessfull"},status=200)
     except Exception as e:
         error=str(e)
@@ -281,7 +280,7 @@ def pdf_generator_from_identity_theft_affidavit_template(request):
         'amount_spent_fixing_credit':data.get('amount_spent_fixing_credit'),
         'date_identity_theft_started':data.get('date_identity_theft_started')
             }
-        pdf_path=template_to_pdf(context,"templates/IDENTITY_THEFT_AFFIDAVIT.html",output_pdf_path,docx_path)
+        pdf_path=template_to_pdf(context,"IDENTITY_THEFT_AFFIDAVIT.html",output_pdf_path,docx_path)
         return Response({'message':"Sucessfull"},status=200)
     except Exception as e:
         error=str(e)
@@ -321,7 +320,7 @@ def pdf_generator_from_identity_theft_fcra_template(request):
         'ss_number': data.get('ss_number'),
         'bdate': data.get('bdate'),
             }
-        pdf_path=template_to_pdf(context,"templates/IDENTITY_THEFT_LETTER_FCRA.html",output_pdf_path,docx_path)
+        pdf_path=template_to_pdf(context,"IDENTITY_THEFT_LETTER_FCRA.html",output_pdf_path,docx_path)
         return Response({'message':"Sucessfull"},status=200)
     except Exception as e:
         error=str(e)
@@ -367,7 +366,7 @@ def pdf_generator_from_inquiry_template(request):
         'disputed_Inquiries_date':data.get('disputed_Inquiries_date'),
         'disputed_Inquiries_reason':data.get('disputed_Inquiries_reason'),
         'disputed_Inquiries_Instruction':data.get('disputed_Inquiries_Instruction')            }
-        pdf_path=template_to_pdf(context,"templates/INQUIRY_DOCUMENT.html",output_pdf_path,docx_path)
+        pdf_path=template_to_pdf(context,"INQUIRY_DOCUMENT.html",output_pdf_path,docx_path)
         print(pdf_path)
         return Response({'message':"Sucessfull"},status=200)
     except Exception as e:
@@ -412,7 +411,7 @@ def pdf_generator_from_personal_information_template(request):
          'client_sign':data.get('client_sign'),
         'personal_Information_explanation':data.get('personal_Information_explanation'),
         'employer_Information_explanation':data.get('employer_Information_explanation'),          }
-        pdf_path=template_to_pdf(context,"templates/PERSONAL_INFORMATION_DOCUMENT.html",output_pdf_path,docx_path)
+        pdf_path=template_to_pdf(context,"PERSONAL_INFORMATION_DOCUMENT.html",output_pdf_path,docx_path)
         print(pdf_path)
         return Response({'message':"Sucessfull"},status=200)
     except Exception as e:
