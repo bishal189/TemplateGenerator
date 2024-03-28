@@ -1,6 +1,6 @@
-import React from 'react'
+import PropTypes from 'prop-types';
 
-const Premium = ({handleClick,clickedDiv}) => {
+const Premium = ({ handleClick, clickedDiv }) => {
     return (
         <div className={`premium_trial ${clickedDiv === 0 ? 'clicked' : ''}`} onClick={() => handleClick(0)}>
             <div className={`inner_premium_trial ${clickedDiv === 0 ? 'background' : ''}`}>
@@ -18,7 +18,12 @@ const Premium = ({handleClick,clickedDiv}) => {
                 </div>
             </div>
         </div>
-    )
-}
+    );
+};
 
-export default Premium
+Premium.propTypes = {
+    handleClick: PropTypes.func.isRequired,
+    clickedDiv: PropTypes.number.isRequired
+};
+
+export default Premium;
