@@ -374,7 +374,53 @@ def pdf_generator_from_inquiry_template(request):
         'disputed_Inquiries_date':data.get('disputed_Inquiries_date'),
         'disputed_Inquiries_reason':data.get('disputed_Inquiries_reason'),
         'disputed_Inquiries_Instruction':data.get('disputed_Inquiries_Instruction')            }
-        pdf_path=template_to_pdf(context,"templates/ACCOUNTS_DOCUMENT.html")
+        pdf_path=template_to_pdf(context,"templates/INQUIRY_DOCUMENT.html")
+        print(pdf_path)
+        return Response({'message':"Sucessfull"},status=200)
+    except Exception as e:
+        error=str(e)
+        print(error)
+        return Response({'error':f"Unexpected error occured {error}"},status=400)
+
+@api_view(['POST'])
+def pdf_generator_from_personal_information_template(request):
+    try:
+        data=json.loads(request.body)
+        replacements = {
+        '[client_first_name]': data.get('client_first_name'),
+        '[client_middle_name]': data.get('client_middle_name'),
+        '[client_last_name]': data.get('client_last_name'),
+        '[client_address]': data.get('client_address'),
+        '[client_city]': data.get('client_city'),
+        '[client_state]': data.get('client_state'),
+        '[client_postal_code]': data.get('client_postal'),
+        '[ss_number]': data.get('ss_number'),
+        '[bdate]': data.get('bdate'),
+        '[client_sign]':data.get('client_sign'),
+        '[personal_Information_explanation]':data.get('personal_Information_explanation'),
+        '[employer_Information_explanation]':data.get('employer_Information_explanation'),
+            }
+        random_characters=generate_random_string(8)
+        print(random_characters)
+        pdf_path = 'pdf/PERSONAL INFORMATION DOCUMENT.pdf'
+        docx_path = f'generated_docx/PERSONAL_INFORMATION_DOCUMENT_{random_characters}.docx'
+        output_pdf_path=f'generated_pdf/PERSONAL_INFORMATION_DOCUMENT_{random_characters}.pdf'
+        pdf_to_docx(pdf_path, docx_path, replacements)
+
+        context = {
+        'client_first_name': data.get('client_first_name'),
+        'client_middle_name': data.get('client_middle_name'),
+        'client_last_name': data.get('client_last_name'),
+        'client_address': data.get('client_address'),
+        'client_city': data.get('client_city'),
+        'client_state': data.get('client_state'),
+        'client_postal_code': data.get('client_postal'),
+        'ss_number': data.get('ss_number'),
+        'bdate': data.get('bdate'),
+         'client_sign':data.get('client_sign'),
+        'personal_Information_explanation':data.get('personal_Information_explanation'),
+        'employer_Information_explanation':data.get('employer_Information_explanation'),          }
+        pdf_path=template_to_pdf(context,"templates/PERSONAL_INFORMATION_DOCUMENT.html",output_pdf_path)
         print(pdf_path)
         return Response({'message':"Sucessfull"},status=200)
     except Exception as e:
