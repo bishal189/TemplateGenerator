@@ -294,10 +294,9 @@ def pdf_generator_from_identity_theft_affidavit_template(request):
         return Response({'error':f"Unexpected error occured {error}"},status=400)
 
 @api_view(['POST'])
-def pdf_generator_from_account_template(request):
+def pdf_generator_from_identity_theft_fcra_template(request):
     try:
         data=json.loads(request.body)
-        combined_data = f"{data.get('account')} {data.get('dispute_reason_in_bullet_list')}"
         replacements = {
         '[client_first_name]': data.get('client_first_name'),
         '[client_middle_name]': data.get('client_middle_name'),
@@ -308,13 +307,12 @@ def pdf_generator_from_account_template(request):
         '[client_postal_code]': data.get('client_postal'),
         '[ss_number]': data.get('ss_number'),
         '[bdate]': data.get('bdate'),
-        '[account , dispute_reason_in_bullet_list]':combined_data
             }
-                random_characters=generate_random_string(8)
-
-        pdf_path = 'template.pdf'
-        docx_path = 'output.docx'
-        output_pdf_path='output.pdf'
+        random_characters=generate_random_string(8)
+        print(random_characters)
+        pdf_path = 'pdf/IDENTITY THEFT LETTER FCRA .pdf'
+        docx_path = f'generated_docx/IDENTITY_THEFT_LETTER_FCRA_{random_characters}.docx'
+        output_pdf_path=f'generated_pdf/IDENTITY_THEFT_LETTER_FCRA_{random_characters}.pdf'
         pdf_to_docx(pdf_path, docx_path, replacements)
         # command = "abiword --to=pdf output.docx output.pdf"
         # os.system(command)
@@ -328,11 +326,8 @@ def pdf_generator_from_account_template(request):
         'client_postal_code': data.get('client_postal'),
         'ss_number': data.get('ss_number'),
         'bdate': data.get('bdate'),
-        'account':data.get('account'),
-        'dispute_reason_in_bullet_list':data.get('dispute_reason_in_bullet_list'),
             }
-        pdf_path=template_to_pdf(context,"templates/ACCOUNTS_DOCUMENT.html")
-        print(pdf_path)
+        pdf_path=template_to_pdf(context,"templates/IDENTITY_THEFT_LETTER_FCRA.html",output_pdf_path)
         return Response({'message':"Sucessfull"},status=200)
     except Exception as e:
         error=str(e)
@@ -340,10 +335,9 @@ def pdf_generator_from_account_template(request):
         return Response({'error':f"Unexpected error occured {error}"},status=400)
 
 @api_view(['POST'])
-def pdf_generator_from_account_template(request):
+def pdf_generator_from_inquiry_template(request):
     try:
         data=json.loads(request.body)
-        combined_data = f"{data.get('account')} {data.get('dispute_reason_in_bullet_list')}"
         replacements = {
         '[client_first_name]': data.get('client_first_name'),
         '[client_middle_name]': data.get('client_middle_name'),
@@ -354,16 +348,18 @@ def pdf_generator_from_account_template(request):
         '[client_postal_code]': data.get('client_postal'),
         '[ss_number]': data.get('ss_number'),
         '[bdate]': data.get('bdate'),
-        '[account , dispute_reason_in_bullet_list]':combined_data
+        '[disputed_Inquiries]':data.get('disputed_Inquiries'),
+        '[disputed_Inquiries_date]':data.get('disputed_Inquiries_date'),
+        '[disputed_Inquiries_reason]':data.get('disputed_Inquiries_reason'),
+        '[disputed_Inquiries_Instruction]':data.get('disputed_Inquiries_Instruction')
             }
-                random_characters=generate_random_string(8)
-
-        pdf_path = 'template.pdf'
-        docx_path = 'output.docx'
-        output_pdf_path='output.pdf'
+        random_characters=generate_random_string(8)
+        print(random_characters)
+        pdf_path = 'pdf/INQUIRY DOCUMENT.pdf'
+        docx_path = f'generated_docx/INQUIRY_DOCUMENT_{random_characters}.docx'
+        output_pdf_path=f'generated_pdf/INQUIRY_DOCUMENT_{random_characters}.pdf'
         pdf_to_docx(pdf_path, docx_path, replacements)
-        # command = "abiword --to=pdf output.docx output.pdf"
-        # os.system(command)
+
         context = {
         'client_first_name': data.get('client_first_name'),
         'client_middle_name': data.get('client_middle_name'),
@@ -374,9 +370,10 @@ def pdf_generator_from_account_template(request):
         'client_postal_code': data.get('client_postal'),
         'ss_number': data.get('ss_number'),
         'bdate': data.get('bdate'),
-        'account':data.get('account'),
-        'dispute_reason_in_bullet_list':data.get('dispute_reason_in_bullet_list'),
-            }
+        'disputed_Inquiries':data.get('disputed_Inquiries'),
+        'disputed_Inquiries_date':data.get('disputed_Inquiries_date'),
+        'disputed_Inquiries_reason':data.get('disputed_Inquiries_reason'),
+        'disputed_Inquiries_Instruction':data.get('disputed_Inquiries_Instruction')            }
         pdf_path=template_to_pdf(context,"templates/ACCOUNTS_DOCUMENT.html")
         print(pdf_path)
         return Response({'message':"Sucessfull"},status=200)
