@@ -11,6 +11,10 @@ import os
 import pdfkit
 from django.http import FileResponse
 from urllib.parse import quote
+import secrets
+def generate_random_string(length):
+    alphabet = string.ascii_letters + string.digits
+    return ''.join(secrets.choice(alphabet) for _ in range(length))
 
 def replace_placeholder(doc, placeholder, replacement):
     for paragraph in doc.paragraphs:
@@ -58,9 +62,11 @@ def pdf_generator_from_account_template(request):
         '[bdate]': data.get('bdate'),
         '[account , dispute_reason_in_bullet_list]':combined_data
             }
-        pdf_path = 'template.pdf'
-        docx_path = 'output.docx'
-        output_pdf_path='output.pdf'
+        # to be appended at the end of generated docx or pdfs
+        random_characters=generate_random_string(8)
+        pdf_path = 'pdf/ACCOUNTS DOCUMENT.pdf'
+        docx_path = f'generated_docx/ACCOUNTS_DOCUMENT_{random_characters}.docx'
+        output_pdf_path=f'generated_pdf/ACCOUNTS_DOCUMENT_{random_characters}.pdf'
         pdf_to_docx(pdf_path, docx_path, replacements)
         # command = "abiword --to=pdf output.docx output.pdf"
         # os.system(command)
@@ -77,7 +83,7 @@ def pdf_generator_from_account_template(request):
         'account':data.get('account'),
         'dispute_reason_in_bullet_list':data.get('dispute_reason_in_bullet_list'),
             }
-        pdf_path=template_to_pdf(context,"templates/ACCOUNTS_DOCUMENT.html")
+        pdf_path=template_to_pdf(context,"templates/ACCOUNTS_DOCUMENT.html",output_pdf_path)
         print(pdf_path)
         return Response({'message':"Sucessfull"},status=200)
     except Exception as e:
@@ -96,11 +102,69 @@ def pdf_generator_from_all_purpose_credit_template(request):
         '[client_address]': data.get('client_address'),
         '[client_city]': data.get('client_city'),
         '[client_state]': data.get('client_state'),
+        '[client_postal_code]': data.get('client_postal_code'),
+        '[ss_number]': data.get('ss_number'),
+        '[bdate]': data.get('bdate'),
+        '[disputed_personal_Information]':data.get('disputed_personal_Information'),
+        '[disputed_personal_Information_Instruction]':data.get('disputed_personal_Information_Instruction'),
+        '[disputed_accounts]':data.get('disputed_accounts'),
+        '[disputed_accounts_Instruction]':data.get('disputed_accounts_Instruction'),
+        '[disputed_Inquiries]':data.get('disputed_Inquiries'),
+        '[disputed_Inquiries_Instruction]':data.get('disputed_Inquiries_Instruction'),
+
+        }
+        random_characters=generate_random_string(8)
+
+        pdf_path = '.pdf'
+        docx_path = 'output.docx'
+        output_pdf_path='output.pdf'
+        pdf_to_docx(pdf_path, docx_path, replacements)
+        # command = "abiword --to=pdf output.docx output.pdf"
+        # os.system(command)
+        context = {
+        'client_first_name': data.get('client_first_name'),
+        'client_middle_name': data.get('client_middle_name'),
+        'client_last_name': data.get('client_last_name'),
+        'client_address': data.get('client_address'),
+        'client_city': data.get('client_city'),
+        'client_state': data.get('client_state'),
+        'client_postal_code': data.get('client_postal'),
+        'ss_number': data.get('ss_number'),
+        'bdate': data.get('bdate'),
+        'disputed_personal_Information':data.get('disputed_personal_Information'),
+        'disputed_personal_Information_Instruction':data.get('disputed_personal_Information_Instruction'),
+        'disputed_accounts':data.get('disputed_accounts'),
+        'disputed_accounts_Instruction':data.get('disputed_accounts_Instruction'),
+        'disputed_Inquiries':data.get('disputed_Inquiries'),
+        'disputed_Inquiries_Instruction':data.get('disputed_Inquiries_Instruction')
+        }
+        pdf_path=template_to_pdf(context,"templates/ACCOUNTS_DOCUMENT.html")
+        print(pdf_path)
+        return Response({'message':"Sucessfull"},status=200)
+    except Exception as e:
+        error=str(e)
+        print(error)
+        return Response({'error':f"Unexpected error occured {error}"},status=400)
+
+@api_view(['POST'])
+def pdf_generator_from_account_template(request):
+    try:
+        data=json.loads(request.body)
+        combined_data = f"{data.get('account')} {data.get('dispute_reason_in_bullet_list')}"
+        replacements = {
+        '[client_first_name]': data.get('client_first_name'),
+        '[client_middle_name]': data.get('client_middle_name'),
+        '[client_last_name]': data.get('client_last_name'),
+        '[client_address]': data.get('client_address'),
+        '[client_city]': data.get('client_city'),
+        '[client_state]': data.get('client_state'),
         '[client_postal_code]': data.get('client_postal'),
         '[ss_number]': data.get('ss_number'),
         '[bdate]': data.get('bdate'),
         '[account , dispute_reason_in_bullet_list]':combined_data
             }
+                random_characters=generate_random_string(8)
+
         pdf_path = 'template.pdf'
         docx_path = 'output.docx'
         output_pdf_path='output.pdf'
@@ -145,6 +209,8 @@ def pdf_generator_from_account_template(request):
         '[bdate]': data.get('bdate'),
         '[account , dispute_reason_in_bullet_list]':combined_data
             }
+                random_characters=generate_random_string(8)
+
         pdf_path = 'template.pdf'
         docx_path = 'output.docx'
         output_pdf_path='output.pdf'
@@ -189,6 +255,54 @@ def pdf_generator_from_account_template(request):
         '[bdate]': data.get('bdate'),
         '[account , dispute_reason_in_bullet_list]':combined_data
             }
+                random_characters=generate_random_string(8)
+
+        pdf_path = 'pdf/ALL PURPOSE CREDIT DOCUMENT.pdf'
+        docx_path = 'genereated_docx/ALL_PURPOSE_CREDIT_DOCUMENT_.docx'
+        output_pdf_path='genereated_pdf/ALL_PURPOSE_CREDIT_DOCUMENT_.pdf'
+        pdf_to_docx(pdf_path, docx_path, replacements)
+        # command = "abiword --to=pdf output.docx output.pdf"
+        # os.system(command)
+        context = {
+        'client_first_name': data.get('client_first_name'),
+        'client_middle_name': data.get('client_middle_name'),
+        'client_last_name': data.get('client_last_name'),
+        'client_address': data.get('client_address'),
+        'client_city': data.get('client_city'),
+        'client_state': data.get('client_state'),
+        'client_postal_code': data.get('client_postal'),
+        'ss_number': data.get('ss_number'),
+        'bdate': data.get('bdate'),
+        'account':data.get('account'),
+        'dispute_reason_in_bullet_list':data.get('dispute_reason_in_bullet_list'),
+            }
+        pdf_path=template_to_pdf(context,"templates/ACCOUNTS_DOCUMENT.html")
+        print(pdf_path)
+        return Response({'message':"Sucessfull"},status=200)
+    except Exception as e:
+        error=str(e)
+        print(error)
+        return Response({'error':f"Unexpected error occured {error}"},status=400)
+
+@api_view(['POST'])
+def pdf_generator_from_account_template(request):
+    try:
+        data=json.loads(request.body)
+        combined_data = f"{data.get('account')} {data.get('dispute_reason_in_bullet_list')}"
+        replacements = {
+        '[client_first_name]': data.get('client_first_name'),
+        '[client_middle_name]': data.get('client_middle_name'),
+        '[client_last_name]': data.get('client_last_name'),
+        '[client_address]': data.get('client_address'),
+        '[client_city]': data.get('client_city'),
+        '[client_state]': data.get('client_state'),
+        '[client_postal_code]': data.get('client_postal'),
+        '[ss_number]': data.get('ss_number'),
+        '[bdate]': data.get('bdate'),
+        '[account , dispute_reason_in_bullet_list]':combined_data
+            }
+                random_characters=generate_random_string(8)
+
         pdf_path = 'template.pdf'
         docx_path = 'output.docx'
         output_pdf_path='output.pdf'
@@ -233,94 +347,8 @@ def pdf_generator_from_account_template(request):
         '[bdate]': data.get('bdate'),
         '[account , dispute_reason_in_bullet_list]':combined_data
             }
-        pdf_path = 'template.pdf'
-        docx_path = 'output.docx'
-        output_pdf_path='output.pdf'
-        pdf_to_docx(pdf_path, docx_path, replacements)
-        # command = "abiword --to=pdf output.docx output.pdf"
-        # os.system(command)
-        context = {
-        'client_first_name': data.get('client_first_name'),
-        'client_middle_name': data.get('client_middle_name'),
-        'client_last_name': data.get('client_last_name'),
-        'client_address': data.get('client_address'),
-        'client_city': data.get('client_city'),
-        'client_state': data.get('client_state'),
-        'client_postal_code': data.get('client_postal'),
-        'ss_number': data.get('ss_number'),
-        'bdate': data.get('bdate'),
-        'account':data.get('account'),
-        'dispute_reason_in_bullet_list':data.get('dispute_reason_in_bullet_list'),
-            }
-        pdf_path=template_to_pdf(context,"templates/ACCOUNTS_DOCUMENT.html")
-        print(pdf_path)
-        return Response({'message':"Sucessfull"},status=200)
-    except Exception as e:
-        error=str(e)
-        print(error)
-        return Response({'error':f"Unexpected error occured {error}"},status=400)
+                random_characters=generate_random_string(8)
 
-@api_view(['POST'])
-def pdf_generator_from_account_template(request):
-    try:
-        data=json.loads(request.body)
-        combined_data = f"{data.get('account')} {data.get('dispute_reason_in_bullet_list')}"
-        replacements = {
-        '[client_first_name]': data.get('client_first_name'),
-        '[client_middle_name]': data.get('client_middle_name'),
-        '[client_last_name]': data.get('client_last_name'),
-        '[client_address]': data.get('client_address'),
-        '[client_city]': data.get('client_city'),
-        '[client_state]': data.get('client_state'),
-        '[client_postal_code]': data.get('client_postal'),
-        '[ss_number]': data.get('ss_number'),
-        '[bdate]': data.get('bdate'),
-        '[account , dispute_reason_in_bullet_list]':combined_data
-            }
-        pdf_path = 'template.pdf'
-        docx_path = 'output.docx'
-        output_pdf_path='output.pdf'
-        pdf_to_docx(pdf_path, docx_path, replacements)
-        # command = "abiword --to=pdf output.docx output.pdf"
-        # os.system(command)
-        context = {
-        'client_first_name': data.get('client_first_name'),
-        'client_middle_name': data.get('client_middle_name'),
-        'client_last_name': data.get('client_last_name'),
-        'client_address': data.get('client_address'),
-        'client_city': data.get('client_city'),
-        'client_state': data.get('client_state'),
-        'client_postal_code': data.get('client_postal'),
-        'ss_number': data.get('ss_number'),
-        'bdate': data.get('bdate'),
-        'account':data.get('account'),
-        'dispute_reason_in_bullet_list':data.get('dispute_reason_in_bullet_list'),
-            }
-        pdf_path=template_to_pdf(context,"templates/ACCOUNTS_DOCUMENT.html")
-        print(pdf_path)
-        return Response({'message':"Sucessfull"},status=200)
-    except Exception as e:
-        error=str(e)
-        print(error)
-        return Response({'error':f"Unexpected error occured {error}"},status=400)
-
-@api_view(['POST'])
-def pdf_generator_from_account_template(request):
-    try:
-        data=json.loads(request.body)
-        combined_data = f"{data.get('account')} {data.get('dispute_reason_in_bullet_list')}"
-        replacements = {
-        '[client_first_name]': data.get('client_first_name'),
-        '[client_middle_name]': data.get('client_middle_name'),
-        '[client_last_name]': data.get('client_last_name'),
-        '[client_address]': data.get('client_address'),
-        '[client_city]': data.get('client_city'),
-        '[client_state]': data.get('client_state'),
-        '[client_postal_code]': data.get('client_postal'),
-        '[ss_number]': data.get('ss_number'),
-        '[bdate]': data.get('bdate'),
-        '[account , dispute_reason_in_bullet_list]':combined_data
-            }
         pdf_path = 'template.pdf'
         docx_path = 'output.docx'
         output_pdf_path='output.pdf'
@@ -362,16 +390,16 @@ def download_file(request,filename):
         return Response({'error':f"unexpected errror{error}"},status=400)
 
 #For Creating template to pdf based on context
-def template_to_pdf(context,template):
+def template_to_pdf(context,template,output_pdf_path):
     template = loader.get_template(template)
     html_content = template.render(context)
 
     # Generate PDF from the HTML content
     pdf_file = pdfkit.from_string(html_content, False)
-    file_path='.generated_pdf/pdf_file.pdf'
+    file_path=output_pdf_path
     with open(file_path, 'wb') as f:
         f.write(pdf_file)
 
     # Create a response with the PDF content
 
-    return file_path
+    return True
