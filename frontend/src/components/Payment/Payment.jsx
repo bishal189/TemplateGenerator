@@ -414,6 +414,17 @@ const Payment = () => {
             </div>
           </div>
         </div>
+        <div className="footer">
+          Copyright 2024 Legal Templates Incorporated. Legal Templates LLC is
+          not a lawyer, a law firm and does not engage in the practice of law.
+          Legal Templates cannot and does not provide legal advice or<br/> legal
+          representation. All information, software and services provided on the
+          site are for informational purposes and self-help only and are not
+          intended to be a substitute for a lawyer or<br/> professional legal advice.
+          Use of this site is subject to our Terms of Use.<br/><br/> Legal Templates is a
+          group of companies and consist of :<br/> U.S.: Legal Templates LLC, 4023
+          Kennett Pike #57884 Wilmington, DE 19807
+        </div>
       </div>
     </>
   );
