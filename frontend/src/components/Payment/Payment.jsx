@@ -1,4 +1,4 @@
-import React from 'react'
+
 import Header from './Header'
 import './Payment.css'
 import { useState } from 'react'
@@ -79,7 +79,7 @@ const Payment = () => {
 
 
 
-                                <div class='info'>
+                                <div className='info'>
                                     <div className='billsummary'>Bill Summary</div>
                                     <div className='traildiv'>
                                         <div className='premiumtrial'>Premium Trail</div>
