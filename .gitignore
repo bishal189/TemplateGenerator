@@ -1,4 +1,5 @@
-
+generated_docx/
+generated_pdf/
 nohup.out
 
 # .gitignore for Django
