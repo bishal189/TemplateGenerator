@@ -19,24 +19,23 @@ function App() {
     <>
 
       {
-        // <Router>
-        //   <Routes>
-        //     {/* <Route path="/" element={<Home />} />
-        //     <Route path="/signin" element={<Signin />} />
-        //     <Route path="/signup" element={<Register />} />
-        //     <Route path="/templates" element={<Templating />} />
+        <Router>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/signin" element={<Signin />} />
+            <Route path="/signup" element={<Register />} />
+            <Route path="/templates" element={<Templating />} />
             
-        //     <Route path="/pages" element={<TemplatePage />} />
-        //     <Route path="/navbar" element={<Navbar />} />
-        //     <Route path="/payment" element={<Payment/>} /> */}
+            <Route path="/pages" element={<TemplatePage />} />
+            <Route path="/navbar" element={<Navbar />} />
+            <Route path="/payment" element={<Payment/>} />
+            <Route path="/leaseagreement" element={<LeaseAgg/>} />
             
             
             
-        //   </Routes>
-        // </Router>
-        <div>
-          <LeaseAgg />
-        </div>
+          </Routes>
+        </Router>
+        
        
       }
     </>
