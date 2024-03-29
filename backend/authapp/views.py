@@ -4,6 +4,7 @@ from google.oauth2 import id_token
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.response import Response
 from rest_framework import status
+from django.shortcuts import redirect
 from rest_framework.decorators import api_view
 import os
 from .models import Account
@@ -59,7 +60,8 @@ def googleoauth(request):
                 'status':status.HTTP_200_OK,
             }'''
             print(username,email,first_name,last_name)
-            return Response(response)
+            new_url = 'http://localhost:5000/google'
+            return redirect(new_url)
         except Exception as e:
             print(e)
             return Response({'status':False})
