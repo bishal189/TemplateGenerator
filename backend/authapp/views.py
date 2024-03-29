@@ -50,19 +50,19 @@ def googleoauth(request):
             email=idinfo['email']
             first_name=idinfo['given_name']
             last_name=idinfo['family_name']
-            '''
-            user,created=Account.objects.get_or_create(email=email,username=username,first_name=first_name,last_name=last_name)
+
+            user,created=Account.objects.get_or_create(email=email)
             user.is_active=True
             user.save()
-            auth.login(request,user)
-            response={
-                'message':'Login Successfull',
-                'user':RegistrationSerializer(user).data,
-                'status':status.HTTP_200_OK,
-            }'''
-            print(username,email,first_name,last_name)
-            new_url = 'http://localhost:5000/google'
-            return redirect(new_url)
+            refresh = RefreshToken.for_user(user)
+
+            return Response({
+            "message": "User created successfully",
+            "refresh": str(refresh),
+            "access": str(refresh.access_token)
+            }, status=status.HTTP_201_CREATED)
+
+
         except Exception as e:
             print(e)
             return Response({'status':False})

@@ -20,12 +20,13 @@ const GoogleLogin = (props) => {
           const response = await axios.post('http://localhost:8000/api/auth/google', {
             code: code
           });
+          const accessToken=response.data.access
+              localStorage.setItem("accessToken", accessToken);
+          window.location.href = "/";
 
           // Handle the response from the backend if needed
-          console.log('Backend response:', response.data);
 
-          // Clear the URL to remove the authorization code
-          window.history.replaceState({}, document.title, window.location.pathname);
+
         }
       } catch (error) {
         console.error('Error sending authorization code to backend:', error);
@@ -47,7 +48,6 @@ const GoogleLogin = (props) => {
           response_type: 'code', // Get authorization code
           access_type: 'offline', // Optional for refresh tokens
         }).toString();
-        alert(loginUrl)
       console.log(window.location.origin)
       window.location.href = loginUrl; // Redirect to Google login page
 
@@ -57,18 +57,23 @@ const GoogleLogin = (props) => {
     }
   };
 
-  return (
-  props.type=="signin"?(
-     <button onClick={handleGoogleLogin} className="login-with-google">
-          <img src={googlelogo} alt="Google logo" className='googlelogo'/>
-          Log in with Google
-        </button>):(
-         < button onClick={handleGoogleLogin} className="logingoogle">
-            <img src={googlelogo} alt="Google logo" className='googlelogo' />
-              Google
-            </button>
-        )
-  );
+return (
+  <>
+    {props.type === "signin" && (
+      <button onClick={handleGoogleLogin} className="login-with-google">
+        <img src={googlelogo} alt="Google logo" className='googlelogo'/>
+        Log in with Google
+      </button>
+    )}
+    {props.type === "signup" && (
+      <button onClick={handleGoogleLogin} className="logingoogle">
+        <img src={googlelogo} alt="Google logo" className='googlelogo' />
+        Google
+      </button>
+    )}
+  </>
+);
+
 };
 
 export default GoogleLogin;
