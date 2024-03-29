@@ -1,7 +1,6 @@
 from django.shortcuts import render
 import json
 from google.oauth2 import id_token
-from google.auth.transport import requests
 from django.views.decorators.csrf import csrf_exempt
 from rest_framework.response import Response
 from rest_framework import status
@@ -10,20 +9,37 @@ import os
 from .models import Account
 from rest_framework_simplejwt.tokens import RefreshToken
 from django.contrib.auth import authenticate
+import requests
+from google.auth.transport import requests as google_requests
 
 # Create your views here.
 # logiin with google
-@api_view(['POST'])
+@api_view(['GET'])
 @csrf_exempt
 def googleoauth(request):
 
         try:
-            data=json.loads(request.body)
-            id_token_data = data['id_token']
+        # Extract authorization code from the query parameters
+            authorization_code = request.GET.get('code')
 
+        # Exchange authorization code for ID token
+            token_endpoint = 'https://oauth2.googleapis.com/token'
             CLIENT_ID = os.getenv('GOOGLE_CLIENT_ID')
-            idinfo = id_token.verify_oauth2_token(id_token_data, requests.Request(), CLIENT_ID)
-            print(idinfo)
+            CLIENT_SECRET = os.getenv('GOOGLE_CLIENT_SECRET')
+            redirect_uri = 'http://localhost:8000/api/auth/google'  # Replace with your redirect URI
+            data = {
+            'code': authorization_code,
+            'client_id': CLIENT_ID,
+            'client_secret': CLIENT_SECRET,
+            'redirect_uri': redirect_uri,
+            'grant_type': 'authorization_code'
+        }
+            response = requests.post(token_endpoint, data=data)
+            token_data = response.json()
+            print(token_data)
+            id_token_data = token_data.get('id_token')
+            print(id_token_data)
+            idinfo = id_token.verify_oauth2_token(id_token_data, google_requests.Request(), CLIENT_ID)
             if idinfo['iss'] not in ['accounts.google.com', 'https://accounts.google.com']:
                 raise ValueError('Wrong issuer.')
 

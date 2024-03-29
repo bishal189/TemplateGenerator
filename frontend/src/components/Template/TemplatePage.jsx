@@ -4,7 +4,7 @@ import "./Sidebar";
 import InputField from "./InputField";
 import Datepicker from "./DatePicker";
 import SideDescription from "./SideDescription";
-import axiosInstance from "../../axiosInstance";
+import axios from "axios";
 import Navbar from "./Navbar";
 
 function TemplatePage() {
@@ -36,12 +36,17 @@ function TemplatePage() {
   }
   async function handleSubmit() {
     try {
-      const response = await axiosInstance.post(
-        "/api/template/account_template/",
+      const response = await axios.post(
+        "https://sandesh9.pythonanywhere.com/api/template/generate/",
         clientData
       );
       setDownloader(true);
-
+      await axios.get(
+        "https://sandesh9.pythonanywhere.com/api/template/downloadfile/output.docx/"
+      );
+      await axios.get(
+        "https://sandesh9.pythonanywhere.com/api/template/downloadfile/output.pdf/"
+      );
       console.log(response.data);
     } catch (err) {
       console.error(err);

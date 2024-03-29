@@ -1,57 +1,40 @@
-import { useEffect } from "react";
-import axiosInstance from "../axiosInstance";
-import "./css/facebookLogin.css"
+import { useState } from 'react';
+
 const GoogleLogin = () => {
-  useEffect(() => {
-    // Function to handle the Google Sign-In response
-    const handleCredentialResponse = async response => {
-      if (response.credential) {
-        var id_token = response.credential;
-        const apiResponse = await axiosInstance.post(
-          `auth/google/`,
-          { id_token },
-          {
-            headers: {
-              "Content-Type": "application/json"
-            }
-          }
-        );
+  const [errorMessage, setErrorMessage] = useState(null);
 
-        const data = apiResponse.data; // or response.text() depending on the response content type
-        // Process the data
-        console.log(data);
-      }
-    };
+  const handleGoogleLogin = async () => {
+    try {
+      const loginUrl = 'https://accounts.google.com/o/oauth2/v2/auth?' +
+        new URLSearchParams({
+          client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
+          redirect_uri: 'http://localhost:8000/api/auth/google', // Replace with your server redirect URI
+          scope: 'profile email',
+          response_type: 'code',
+          access_type: 'offline', // Optional for refresh tokens
+        }).toString();
 
-    // Load Google Sign-In library and configure it
-    window.onload = function() {
-      window.google.accounts.id.initialize({
-        client_id: `${import.meta.env.VITE_GOOGLE_CLIENT_ID}`,
-        callback: handleCredentialResponse // Set the callback function
-      });
-      window.google.accounts.id.renderButton(
-        document.getElementById("g_id_signin"), // Specify the element ID
-        {
-          theme: "outline",
-          type: "standard",
-          size: "large"
+      // Open Google login page in a new browser tab
+      const googleLoginWindow = window.open(loginUrl, '_blank');
+
+      // Close the window after 3 minutes (adjust as needed)
+      setTimeout(() => {
+        if (googleLoginWindow && !googleLoginWindow.closed) {
+          googleLoginWindow.close();
         }
-      );
-       const customButton = document.getElementById("custom-google-btn");
+      }, 3 * 60 * 1000); // 3 minutes
 
-    customButton.addEventListener('click', () => {
-    document.querySelector('#g_id_signin div[role=button]').click();
-});
-
-    };
-  }, []); // Ensure that this effect runs only once on component mount
+    } catch (error) {
+      console.error('Error initiating Google login:', error);
+      setErrorMessage('An error occurred. Please try again.');
+    }
+  };
 
   return (
-    <>
-    <button id="custom-google-btn">Continue with Google</button>
-      <div id="g_id_signin" />
-      </>
-  )
+    <button onClick={handleGoogleLogin}>
+      Login with Google
+    </button>
+  );
 };
 
 export default GoogleLogin;
