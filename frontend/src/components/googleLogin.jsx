@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const GoogleLogin = () => {
   const [errorMessage, setErrorMessage] = useState(null);
-/*
+
   useEffect(() => {
     // Function to handle the callback after Google login
     const handleCallback = async () => {
@@ -34,13 +34,13 @@ const GoogleLogin = () => {
     handleCallback(); // Invoke handleCallback function when component mounts
 
   }, []); // Run once on component mount
-*/
+
   const handleGoogleLogin = () => {
     try {
       const loginUrl = 'https://accounts.google.com/o/oauth2/v2/auth?' +
         new URLSearchParams({
           client_id: import.meta.env.VITE_GOOGLE_CLIENT_ID,
-          redirect_uri :'http://localhost:8000/api/auth/google',
+          redirect_uri: window.location.origin+"/google", // Redirect back to the same page
           scope: 'profile email',
           response_type: 'code', // Get authorization code
           access_type: 'offline', // Optional for refresh tokens

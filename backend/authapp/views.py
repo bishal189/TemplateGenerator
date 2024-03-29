@@ -15,19 +15,20 @@ from google.auth.transport import requests as google_requests
 
 # Create your views here.
 # logiin with google
-@api_view(['GET'])
+@api_view(['POST'])
 @csrf_exempt
 def googleoauth(request):
 
         try:
         # Extract authorization code from the query parameters
-            authorization_code = request.GET.get('code')
+            data=json.loads(request.body)
+            authorization_code = data.get('code')
 
         # Exchange authorization code for ID token
             token_endpoint = 'https://oauth2.googleapis.com/token'
             CLIENT_ID = os.getenv('GOOGLE_CLIENT_ID')
             CLIENT_SECRET = os.getenv('GOOGLE_CLIENT_SECRET')
-            redirect_uri = 'http://localhost:8000/api/auth/google'  # Replace with your redirect URI
+            redirect_uri = 'http://localhost:5000/google'  # Replace with your redirect URI
             data = {
             'code': authorization_code,
             'client_id': CLIENT_ID,
