@@ -1,0 +1,292 @@
+
+/* styles.css */
+.wrap {
+  display: flex;
+  align-items: center; /* Align items vertically center */
+  margin-left: 40px;
+  color: #757575;
+  font-size: 0.9rem;
+  margin-top:30px;
+  margin-bottom: 20px;
+}
+
+.para1 {
+  margin-left: 20 px;
+  display: flex;
+  align-items: center; /* Align items vertically center */
+}
+
+.para1 a {
+  text-decoration: none;
+}
+
+.para1 span {
+  margin-right: 5px; /* Adjust spacing between spans */
+}
+
+
+
+.heading2{
+    text-align: left;
+    font-weight: bold;
+    font-size: 55px; /* Adjust size a
+    s needed */
+    font-family: Arial, sans-serif;
+    margin-left: 40px;
+}
+.para2 {
+    color: #555; /* Light black color */
+    font-size: 20px; /* Small font size */
+    font-family: Arial, sans-serif; /* Font family */
+    text-align: left; /* Align text to the left */
+    margin-left: 20px; /* Add some left margin */
+    margin-top:60px
+}
+/* styles.css */
+#options {
+    margin-top: 10px;
+}
+
+.screen-reader-text{
+  clip: rect(1px, 1px, 1px, 1px);
+  word-wrap: normal !important;
+    overflow-wrap: normal;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+    margin-top: -1px;
+    margin-right: -1px;
+    margin-bottom: -1px;
+    margin-left: -1px;
+  padding: 0;
+    padding-top: 0px;
+    padding-right: 0px;
+    padding-bottom: 0px;
+    padding-left: 0px;
+  overflow: hidden;
+    overflow-x: hidden;
+    overflow-y: hidden;
+  border: 0;
+    border-top-width: 0px;
+    border-top-style: none;
+    border-top-color: currentcolor;
+    border-right-width: 0px;
+    border-right-style: none;
+    border-right-color: currentcolor;
+    border-bottom-width: 0px;
+    border-bottom-style: none;
+    border-bottom-color: currentcolor;
+    border-left-width: 0px;
+    border-left-style: none;
+    border-left-color: currentcolor;
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+  -webkit-clip-path: inset(50%);
+  clip-path: inset(50%);
+}
+
+
+
+
+
+
+
+
+
+
+.button1 {
+  border: 2px solid #888;
+  border-radius: 10px;
+  padding: 15px 50px; 
+  margin-left: 20px;
+  background-color: transparent;
+  color: #000;
+  font-weight: normal;
+  cursor: pointer;
+  transition: background-color 0.3s, border-color 0.3s;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.button1 .arrow {
+  background-color: white;
+  font-weight: bold;
+  font-size: 23px;
+}
+
+.arrow {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.arrow svg {
+  font-weight: bold;
+}
+
+.options1Container {
+  max-width: calc(100% - 40px); 
+  width: auto; 
+  border: 2px solid #ddd; 
+  border-radius: 10px; /* Rounded corners */
+   top: calc(100% + 10px); 
+  left: 0; 
+  z-index: 2; 
+  overflow-y: hidden; 
+  max-height: 300px; 
+}
+
+.options1List {
+  list-style-type: none; /* Remove default list styles */
+  padding: 0; /* Remove default padding */
+  margin: 0; /* Remove default margin */
+}
+
+.options1List li {
+  padding: 15px 25px; /* Match padding with button */
+  transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.options1List li:hover {
+  background-color: #e0e0e0; /* Slightly darker background color on hover */
+}
+
+
+.button{
+  
+  width: 100%;
+  flex: 0 0 auto;
+  border: 1px solid #bdbdbd;
+  border-radius: .5rem;
+  padding: .8181818182em 2.2727272727em;
+  border-color: #4b62f9;
+  background-color: #4b62f9;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1rem;
+  display: inline-block;
+  appearance: none;
+  line-height: 1.15;
+  text-align: center;
+  cursor: pointer;
+  transition: all .15s ease-in-out;
+  text-transform: none;
+  overflow: visible;
+  margin: 0;
+  font-family: inherit;
+  margin-left: 10px;
+}
+
+.button:hover{
+  background-color: white ;
+  color: #4b62f9;
+}
+.button span{
+  background: transparent;
+}
+
+
+
+.optionsContainer {
+  position: absolute;
+  top: calc(100% + 10px);
+  left: 0;
+  width: 100%; /* Set width to match button width */
+  display: flex;
+  justify-content: center;
+}
+
+.optionsList {
+  max-width: 500px; /* Adjust maximum width as needed */
+  width: 100%; /* Set width to match container width */
+  border: 2px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+  padding: 20px; /* Add padding for spacing */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Add shadow for depth effect */
+}
+
+.optionsList li {
+  list-style-type: none;
+}
+
+.optionsList li a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+  transition: background-color 0.3s;
+}
+
+.optionsList li a:hover {
+  background-color: #f0f0f0;
+}
+
+ 
+  .button-flex{
+    display:flex;
+    margin-top: 80px;
+    padding: auto;
+    margin-inline: 10px;
+    padding: 10px;
+    
+  }
+ 
+.page-flex{
+ 
+  display:flex;
+}  
+.image-button {
+  
+  top: 45%;
+  right: 20px;
+  transform: translateY(-50%);
+  text-align: right;
+  margin-right:50px;
+}
+
+.document-sidebar {
+  position:relative;
+  border: 1px solid #bdbdbd;
+    border-top-width: 1px;
+    border-top-style: solid;
+    border-top-color: rgb(189, 189, 189);
+    border-right-width: 1px;
+    border-right-style: solid;
+    border-right-color: rgb(189, 189, 189);
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: rgb(189, 189, 189);
+    border-left-width: 1px;
+    border-left-style: solid;
+    border-left-color: rgb(189, 189, 189);
+    border-image-outset: 0;
+    border-image-repeat: stretch;
+    border-image-slice: 100%;
+    border-image-source: none;
+    border-image-width: 1;
+  border-radius: .5rem;
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+  padding: 1.5em;
+    padding-top: 1.5em;
+    padding-right: 1.5em;
+    padding-bottom: 1.5em;
+    padding-left: 1.5em;
+}
+*, ::before, ::after {
+  box-sizing: inherit;
+}
+.image{
+  text-align: center;
+} 
