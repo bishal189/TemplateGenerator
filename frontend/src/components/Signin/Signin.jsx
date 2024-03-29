@@ -1,10 +1,10 @@
 import React from 'react';
 import './Signin.css'
-import facebooklogo from '../../assets/facebook.png'
-import googlelogo from '../../assets/google.png'
 import Header from './Header';
 import { useState } from 'react';
 import axios from 'axios';
+import GoogleLogin from '../googleLogin'
+import FacebookLogin from '../facebookLogin'
 
 function Signin() {
 
@@ -67,14 +67,8 @@ function Signin() {
     <div className="login-container">
       <h1>Log In</h1>
       <div className="social-login">
-        <button className="login-with-google">
-          <img src={googlelogo} alt="Google logo" className='googlelogo'/>
-          Log in with Google
-        </button>
-        <button className="login-with-facebook">
-          <img src={facebooklogo} alt="Facebook logo" className='facebooklogo' />
-          Log in with Facebook
-        </button>
+       <GoogleLogin type="signin" />
+       <FacebookLogin type="signin" />
       </div>
 
        <div className='middle'>

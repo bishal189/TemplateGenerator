@@ -12,6 +12,7 @@ import Payment from "./components/Payment/Payment";
 import Navbar  from "./components/Template/Navbar";
 import LeaseAgg from "./pages/Document/LeaseAgg";
 
+import GoogleLogin from './components/googleLogin'
 
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
             <Route path="/signin" element={<Signin />} />
             <Route path="/signup" element={<Register />} />
             <Route path="/templates" element={<Templating />} />
+            <Route path="/google" element={<GoogleLogin />} />
             
             <Route path="/pages" element={<TemplatePage />} />
             <Route path="/navbar" element={<Navbar />} />
