@@ -1,6 +1,8 @@
 
 nohup.out
 
+generated_docx
+generated_pdf
 # .gitignore for Django
 #ignoring the input video
 *.aac
