@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from "react";
-import "./css/facebookLogin.css"
-import FacebookIcon from '../assets/facebook-icon.svg'
-const FacebookLogin = () => {
+import './Signin/Signin.css'
+
+import facebooklogo from '../assets/facebook-icon.svg'
+const FacebookLogin = (props) => {
   useEffect(() => {
     // Load the Facebook SDK asynchronously
     window.fbAsyncInit = function() {
@@ -70,16 +71,15 @@ const FacebookLogin = () => {
   };
 
   return (
-    <>
-        <button className="facebook-btn" onClick={handleLogin}>
 
-        <img height="24" width="24" src={FacebookIcon} />
-        <div className="facebook-text">
-        Login with Facebook
-        </div>
-        </button>
+  props.type=="signin"?(
+    <button onClick={handleLogin} className="login-with-facebook">
+          <img src={facebooklogo} alt="Facebook logo" className='facebooklogo' />
+          Log in with Facebook
+        </button>):"NONe"
 
-    </>
+
+
   );
 };
 

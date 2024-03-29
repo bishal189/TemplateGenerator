@@ -1,7 +1,9 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import './Signin/Signin.css'
+import googlelogo from '../assets/google.png'
 
-const GoogleLogin = () => {
+const GoogleLogin = (props) => {
   const [errorMessage, setErrorMessage] = useState(null);
 
   useEffect(() => {
@@ -11,7 +13,6 @@ const GoogleLogin = () => {
         // Parse the authorization code from the URL
         const urlParams = new URLSearchParams(window.location.search);
         const code = urlParams.get('code');
-        console.log(code)
         console.log(window.location.origin+"/google")
         if (code) {
           // Send the authorization code to the backend to exchange for an ID token
@@ -56,12 +57,11 @@ const GoogleLogin = () => {
   };
 
   return (
-    <div>
-      <button onClick={handleGoogleLogin}>
-        Login with Google
-      </button>
-      {errorMessage && <p>{errorMessage}</p>}
-    </div>
+  props.type=="signin"?(
+     <button onClick={handleGoogleLogin} className="login-with-google">
+          <img src={googlelogo} alt="Google logo" className='googlelogo'/>
+          Log in with Google
+        </button>):"none"
   );
 };
 
