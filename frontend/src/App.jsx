@@ -10,6 +10,7 @@ import TemplatePage from "./components/Template/TemplatePage";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Payment from "./components/Payment/Payment";
 import Navbar  from "./components/Template/Navbar";
+import LeaseAgg from "./pages/Document/LeaseAgg";
 
 
 
@@ -18,21 +19,25 @@ function App() {
     <>
 
       {
-        <Router>
-          <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/signin" element={<Signin />} />
-            <Route path="/signup" element={<Register />} />
-            <Route path="/templates" element={<Templating />} />
+        // <Router>
+        //   <Routes>
+        //     {/* <Route path="/" element={<Home />} />
+        //     <Route path="/signin" element={<Signin />} />
+        //     <Route path="/signup" element={<Register />} />
+        //     <Route path="/templates" element={<Templating />} />
             
-            <Route path="/pages" element={<TemplatePage />} />
-            <Route path="/navbar" element={<Navbar />} />
-            <Route path="/payment" element={<Payment/>} />
-          
+        //     <Route path="/pages" element={<TemplatePage />} />
+        //     <Route path="/navbar" element={<Navbar />} />
+        //     <Route path="/payment" element={<Payment/>} /> */}
             
             
-          </Routes>
-        </Router>
+            
+        //   </Routes>
+        // </Router>
+        <div>
+          <LeaseAgg />
+        </div>
+       
       }
     </>
   );
