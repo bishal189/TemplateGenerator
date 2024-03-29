@@ -1,10 +1,9 @@
 import React from 'react'
-import facebooklogo from '../../assets/facebook.png'
-import googlelogo from '../../assets/google.png'
 import Header from '../Signin/Header'
 import './Register.css'
 import axios from 'axios'
-
+import GoogleLogin from '../googleLogin'
+import FacebookLogin from '../facebookLogin'
 import { useState } from 'react'
 const Register = () => {
 
@@ -57,14 +56,8 @@ const Register = () => {
 
 
           <div className="sociallogin">
-            <button className="logingoogle">
-              <img src={googlelogo} alt="Google logo" className='googlelogo' />
-              Google
-            </button>
-            <button className="loginfacebook">
-              <img src={facebooklogo} alt="Facebook logo" className='facebooklogo' />
-              Facebook
-            </button>
+            <GoogleLogin />
+           <FacebookLogin />
           </div>
 
           <p>Already have an account? <a href="#"><span className='signup'>Log in</span></a></p>

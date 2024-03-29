@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Signin/Signin.css'
 import googlelogo from '../assets/google.png'
+import './SignUp/Register.css'
 
 const GoogleLogin = (props) => {
   const [errorMessage, setErrorMessage] = useState(null);
@@ -61,7 +62,12 @@ const GoogleLogin = (props) => {
      <button onClick={handleGoogleLogin} className="login-with-google">
           <img src={googlelogo} alt="Google logo" className='googlelogo'/>
           Log in with Google
-        </button>):"none"
+        </button>):(
+         < button onClick={handleGoogleLogin} className="logingoogle">
+            <img src={googlelogo} alt="Google logo" className='googlelogo' />
+              Google
+            </button>
+        )
   );
 };
 

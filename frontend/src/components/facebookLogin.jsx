@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import './Signin/Signin.css'
+import './SignUp/Register.css'
 
 import facebooklogo from '../assets/facebook-icon.svg'
 const FacebookLogin = (props) => {
@@ -76,7 +77,11 @@ const FacebookLogin = (props) => {
     <button onClick={handleLogin} className="login-with-facebook">
           <img src={facebooklogo} alt="Facebook logo" className='facebooklogo' />
           Log in with Facebook
-        </button>):"NONe"
+        </button>):(
+          <button onClick={handleLogin} className="loginfacebook">
+              <img src={facebooklogo} alt="Facebook logo" className='facebooklogo' />
+              Facebook
+            </button>)
 
 
 
