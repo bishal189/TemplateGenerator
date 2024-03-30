@@ -71,6 +71,8 @@
   .site-footer {
     display: flex; /* Use flexbox to align items horizontally */
     flex-wrap: wrap; /* Allow items to wrap onto multiple lines if needed */
+    margin-left: 40px;
+    
   }
   
   .footer-content {
@@ -99,13 +101,17 @@
   }
   
   .icon{
+    text-align: right;
+    margin-right: 20px;
     color:black;
     display:flex;
-    height:50px;
-    width:60px;
+    height:40px;
+    width:40px;
     text-align: right;
-    font-size: 30px; /* Adjust icon size as needed */
+    font-size: 20px; /* Adjust icon size as needed */
    margin-bottom: 10px;
+   align-items: center;
+   box-sizing: inherit;
   }
   .facebook:hover{
    color: blue;
@@ -128,10 +134,26 @@
     width:60px;
    }
    hr {
-    border: 0; /* Remove default border */
-    height: -0.2px; /* Set height of the line */
-    background-color: black; /* Set color of the line */
+    border: 5px; /* Remove default border */
+    height: 1px; /* Set height of the line */
+    color: black; /* Set color of the line */
     margin: 3px 0; /* Add margin above and below the line */
   }
-  
-  
+  .copyright{
+    margin-left: 40px;
+    color: #757575;
+  }
+
+  .site-footer p{
+    color: #757575;
+  font-size: 0.75rem;
+  margin-bottom: 0;
+  margin: 0 0 1.5em;
+  line-height: 1.5;
+  }
+   .site-footer .icon{
+    text-align: center;
+    box-sizing: inherit;
+
+
+   }
