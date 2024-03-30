@@ -26,7 +26,7 @@ const LeaseAgg = () => {
       </div>
 
       <div className="page-flex">
-        <div>
+        <div className="page-item">
           <div className="heading2">
             <h1 className="heading2">Rental And Lease Aggrements</h1>
             <h1 className="heading2">Templates</h1>
@@ -64,10 +64,14 @@ const LeaseAgg = () => {
           </div>
         </div>
 
-        {/* <div>
+        <div className="page-item">
           <button className="document-sidebar" type="button">
             <img className="image" width="240" height="310" src="https://legaltemplates.net/wp-content/uploads/Standard-Lease-Agreement-240x310.png" alt="Standard Lease Agreement" loading="eager" />
-            <p>Create Your Lease Agreement in Minutes!</p>
+            <br/>
+           
+            <p className="para3">Create Your Lease Agreement in Minutes!</p>
+            <br/>
+           
 
             <div>
               <button className="button1" id="optionsButton" onClick={toggle1Options}>
@@ -77,7 +81,7 @@ const LeaseAgg = () => {
               {seeOptions && (
                 <div className="optionsContainer">
                   <ul className="optionsList">
-                    <li><a href="#select documents">Select document</a></li>
+                    <li>Select document</li>
                     <li><a href="#standard lease agreements">Standard lease agreements</a></li>
                     <li><a href="#standard lease agreements">Standard lease agreements</a></li>
                     <li><a href="#standard lease agreements">Standard lease agreements</a></li>
@@ -88,7 +92,7 @@ const LeaseAgg = () => {
               )}
             </div>
           </button>
-        </div> */}
+        </div>
       </div>
     </div >
   );

@@ -241,7 +241,7 @@
   }
  
 .page-flex{
- 
+ justify-content: space-between;
   display:flex;
 }  
 .image-button {
@@ -254,6 +254,8 @@
 }
 
 .document-sidebar {
+  text-align: right;
+  margin-right: 40px;
   position:relative;
   border: 1px solid #bdbdbd;
     border-top-width: 1px;
@@ -283,10 +285,27 @@
     padding-right: 1.5em;
     padding-bottom: 1.5em;
     padding-left: 1.5em;
+    display:block;
+    justify-content: center;
 }
 *, ::before, ::after {
   box-sizing: inherit;
 }
-.image{
+.document-sidebar img{
+  display: block;
+  width: 100%;
+  max-width: none;
+  margin: 0 auto .75em;
   text-align: center;
+  justify-content: center;
 } 
+ .para3{
+  font-size: 0.9rem;
+  text-align: center;
+  margin: 0 0 1.5em;
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+.page-item{
+  margin: 0 1px;
+}
