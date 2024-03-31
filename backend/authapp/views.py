@@ -28,7 +28,7 @@ def googleoauth(request):
             token_endpoint = 'https://oauth2.googleapis.com/token'
             CLIENT_ID = os.getenv('GOOGLE_CLIENT_ID')
             CLIENT_SECRET = os.getenv('GOOGLE_CLIENT_SECRET')
-            redirect_uri = 'http://localhost:5000/google'  # Replace with your redirect URI
+            redirect_uri = 'https://templategenerator9.netlify.app/google'  # Replace with your redirect URI
             data = {
             'code': authorization_code,
             'client_id': CLIENT_ID,
